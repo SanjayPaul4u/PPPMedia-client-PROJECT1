@@ -4,3 +4,19 @@
     - npm i concurrently (in client app)
     - "both": "concurrently \"npm start\" \"nodemon ../backendServer/index.js\""
     - npm run both
+    
+2. Simple Component Create - Navbar, Home, About, Help, User, 404page, Login, Signup 
+    - rfc
+    - rfce
+
+3. Add React Roter Dom
+    - npm i react-router-dom
+    - import {BrowserRouter, Routes,Route} from 'react-router-dom'
+    - <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/home" element={<Home/>}/>
+        <Route exact path="/about" element={<About/>}/>
+      </Routes>
+      </BrowserRouter>
