@@ -1,0 +1,6 @@
+1. React app setup (add bootstrap, add favicon, title, content) ✔🟢
+
+    - npx create-react-app client
+    - npm i concurrently (in client app)
+    - "both": "concurrently \"npm start\" \"nodemon ../backendServer/index.js\""
+    - npm run both
