@@ -6,7 +6,10 @@ import Error404page from './components/Error404page';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import User from './components/User';
+// import Footer from './components/Footer';
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
+
+
 
 /*
 <Home/>
@@ -35,6 +38,7 @@ function App() {
             <Route exact path='/*' element={<Error404page/>}/>
             
         </Routes>
+        {/* <Footer/> */}
 
     </BrowserRouter>
     </>

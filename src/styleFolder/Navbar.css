@@ -1,0 +1,18 @@
+#navbar{
+    color: red;
+}
+.navbarContainer{
+    margin-bottom: -0.3rem;
+    
+}
+#mainNavbar{
+    border-bottom: 0.15rem solid #b2c8c8;
+}
+.nav-link:hover{
+    background-color: #e4dcdc;
+    border-bottom: -0.2rem solid white;
+     ;
+}
+#nav-img{
+    height: 2.5rem;
+}

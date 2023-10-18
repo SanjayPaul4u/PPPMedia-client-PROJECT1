@@ -20,3 +20,5 @@
         <Route exact path="/about" element={<About/>}/>
       </Routes>
       </BrowserRouter>
+
+4. Working on 404Error Page, navbar
