@@ -30,6 +30,8 @@ body{
 }
 #img-row{
     padding: 5rem;
+    background-color: #b8e1e1b8;
+    border-radius: 67% 33% 49% 51% / 57% 55% 45% 43%  ;
 }
 #btn-row{
 

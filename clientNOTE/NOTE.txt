@@ -5,11 +5,11 @@
     - "both": "concurrently \"npm start\" \"nodemon ../backendServer/index.js\""
     - npm run both
     
-2. Simple Component Create - Navbar, Home, About, Help, User, 404page, Login, Signup 
+2. Simple Component Create - Navbar, Home, About, Help, User, 404page, Login, Signup  ✔🟢
     - rfc
     - rfce
 
-3. Add React Roter Dom
+3. Add React Roter Dom ✔🟢
     - npm i react-router-dom
     - import {BrowserRouter, Routes,Route} from 'react-router-dom'
     - <BrowserRouter>
@@ -21,4 +21,6 @@
       </Routes>
       </BrowserRouter>
 
-4. Working on 404Error Page, navbar
+4. Working on 404Error Page, navbar ✔🟢
+
+5. work on home page ✔🟢

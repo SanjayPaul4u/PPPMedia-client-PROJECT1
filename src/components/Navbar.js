@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import '../styleFolder/Navbar.css'
-import socialMediaImg from './images/social-media.png'
+import socialMediaImg from './images/letter.png'
 
 
 function Navbar() {
@@ -24,9 +24,9 @@ const myStyle = {
     <div >
         <nav id='mainNavbar'  className="container navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid navbarContainer">
-            <   img id='nav-img' className='me-2' src={socialMediaImg} alt="error" />
+            <   img id='nav-img'  src={socialMediaImg} alt="error" />
                 <Link className="navbar-brand" to="/">
-                PPP Media
+                PP Media
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

@@ -1,10 +1,30 @@
 import React from 'react'
+import  '../../styleFolder/Home.css'
+import Uploads from './Uploads'
 
 function Home() {
   return (
-    <div className='container'>
-        <h2>This is Home component</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus aliquam rerum dicta atque at incidunt non, velit modi recusandae debitis assumenda molestiae perferendis dolorem provident nemo repudiandae, cupiditate placeat architecto praesentium illo tempore. Saepe molestiae laudantium natus eum iste soluta assumenda temporibus? Totam et ullam maxime ab? Provident, unde expedita?</p>
+    <div id='homeDiv' className='container'>
+      {/* row */}
+        <div className="row d-flex justify-content-between">
+          {/* 1st rows */}
+          <div className='home-rows col-4 col-md-4 col-xl-4 ' id="homeRow1" >
+            <div className='fixed-top' id='sidebar1'>jfirst div</div>
+          </div>
+
+
+          {/* 2nd row */}
+          <div className='mx-auto home-rows col-6 col-md-6 col-xl-6 ' id="homeRow2"> 
+           <Uploads/>
+          </div>
+
+          
+          {/* 3rd row */}
+          <div className='bd-sidebar home-rows col-2 col-md-2 col-xl-2 ' id="homeRow3"> 
+          <div className='fixed-top' id='sidebar2'>last div</div>
+          </div>
+
+        </div>
     </div>
   )
 }
