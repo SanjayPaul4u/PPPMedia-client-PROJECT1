@@ -23,4 +23,6 @@
 
 4. Working on 404Error Page, navbar ✔🟢
 
-5. work on home page ✔🟢
+5. Simple work on home page ✔🟢
+
+6. Work on (Styling) home-> Uploads page ✔🟢

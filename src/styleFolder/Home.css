@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+
 #homeDiv{
     height: 100vh;
     width: 100%;
@@ -14,8 +16,6 @@
 } */
 #homeRow2{
     height: auto;
-    
-
 }
 /* #homeRow3{
     height: 35rem;
@@ -25,6 +25,7 @@
 } */
 .home-card{
     background-color: white;
+    border-radius: 0.2rem;
 }
 #sidebar1{
     background-color: white;
@@ -41,4 +42,49 @@
     border-radius: 0.3rem;
     top: 4rem;
     left: 72rem;
+}
+
+/* UPLOAD COMPONENT IN HOME */
+#cameraIcon{
+    font-size: 2.5rem;
+    color: #45b5a2b8;
+}
+#uploadTitle{
+    font-weight: bold;
+    color: rgb(142, 142, 142);
+}
+#dp-div{
+}
+#dp-img{
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+}
+#dp-name{
+    color: rgb(44, 44, 44);
+    margin: 0rem;
+    padding-left: 0.5rem;
+    letter-spacing: -0.05rem;
+    text-transform: capitalize;
+}
+#db-about{
+    color: rgb(130, 130, 130);
+    margin: 0rem;
+    padding-left: 0.5rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+#dp-line{
+    color: rgb(55, 55, 55);
+    margin: 0.5rem;
+
+}
+#follow-icon{
+    font-size: 2rem;
+    color: #389485b8;
+}
+#upload-title{
+    color: rgb(55, 55, 55);
+    font-family: 'Kanit', sans-serif;
+    text-transform: capitalize;
 }
