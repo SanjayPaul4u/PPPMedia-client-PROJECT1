@@ -26,7 +26,7 @@ function Uploads() {
                     <p id='db-about'>Set you about section</p>
                   </div>
                 </div>
-                <i id='follow-icon' class="fa-solid fa-plus"></i>
+                <i id='follow-icon' className="fa-solid fa-plus"></i>
               </div>  
               <hr id='dp-line'/>
 

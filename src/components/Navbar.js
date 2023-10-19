@@ -18,7 +18,8 @@ const myStyle = {
     fontWeight:"bold",
     backgroundColor: "#3ecdb4b8",
     borderBottom: "0.2rem solid #515151",
-    marginBottom:"-5rem"
+    marginBottom:"-5rem",
+    // transition: "all 0.5s"
 }
   return (
     <div >

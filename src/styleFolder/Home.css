@@ -44,7 +44,7 @@
     left: 72rem;
 }
 
-/* UPLOAD COMPONENT IN HOME */
+/* UPLOAD COMPONENT IN HOME -----------------------------------*/
 #cameraIcon{
     font-size: 2.5rem;
     color: #45b5a2b8;
@@ -87,4 +87,39 @@
     color: rgb(55, 55, 55);
     font-family: 'Kanit', sans-serif;
     text-transform: capitalize;
+}
+
+
+/* User Side Bar ---------------------------------------*/
+
+#main-user-sidebar-div{
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+#side-bar-dp{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+#sidebar-user-name{
+    color: rgb(44, 44, 44);
+    font-family: 'Kanit', sans-serif;
+    text-transform: capitalize;
+}
+#sidebar-user-about{
+    color: rgb(130, 130, 130);
+    font-family: 'Kanit', sans-serif;
+    text-transform: capitalize;
+}
+.sidebar-buttons{
+    color: white;
+    background-color: rgb(66, 66, 66);
+    border-left: 0.4rem solid #848484;
+    transition: all 0.5s;
+}
+.sidebar-buttons:hover{
+    background-color: #3ecdb4b8;
+    border-left: 0.4rem solid #515151;
+    transition: all 0.5s;
 }
