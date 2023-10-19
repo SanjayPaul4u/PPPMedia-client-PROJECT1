@@ -2,6 +2,8 @@ import React from 'react'
 import  '../../styleFolder/Home.css'
 import Uploads from './Uploads'
 import Usersidebar from './Usersidebar'
+import Peoples from './Peoples'
+
 
 
 function Home() {
@@ -12,14 +14,14 @@ function Home() {
           {/* 1st rows -  */}
           <div className='home-rows col-4 col-md-4 col-xl-4 ' id="homeRow1" >
             <div className='fixed-top' id='sidebar1'>
-
+              <Peoples/>
             </div>
           </div>
 
 
           {/* 2nd row - ALL UPLOADED PHOTO */}
           <div className='mx-auto home-rows col-6 col-md-6 col-xl-6 ' id="homeRow2"> 
-           <Uploads/>
+             <Uploads/>
           </div>
 
           

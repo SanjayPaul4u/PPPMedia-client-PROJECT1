@@ -28,3 +28,5 @@
 6. Work on (Styling) home-> Uploads page ✔🟢
 
 7. Simple Work (Styling) on "Usersidebar" Component ✔🟢
+
+8. Simple Work on (Styling) "Peoples" component ✔🟢
