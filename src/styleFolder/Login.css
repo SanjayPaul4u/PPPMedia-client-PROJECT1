@@ -1,0 +1,26 @@
+#main-login-component{
+    background-color: white;
+    margin-top: 4rem;
+    height: 90vh;
+    border-radius: 0.3rem;
+    padding: 1.3rem;
+}
+#login-header{
+    font-size: 1.6rem;
+    color: rgb(82, 82, 82);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#login-img-div{
+    border-radius:51% 49% 76% 24% / 48% 56% 44% 52% ;
+    background-color: rgb(245, 245, 245);
+}
+
+#login-form-div{
+    padding: 4rem;
+}
+#login-form-div form{
+    padding: 1rem;
+    border: 0.2rem solid #aaeeea;
+    border-radius: 0.3rem;
+}
