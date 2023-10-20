@@ -1,7 +1,6 @@
 import Navbar from './components/Navbar';
 import Home from './components/home/Home';
 import About from './components/About';
-import Help from './components/Help';
 import Error404page from './components/Error404page';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -31,7 +30,6 @@ function App() {
             <Route exact path='/' element={<Home/>}/>
             <Route exact path='/home' element={<Home/>}/>
             <Route exact path='/about' element={<About/>}/>
-            <Route exact path='/help' element={<Help/>}/>
             <Route exact path='/user' element={<User/>}/>
             <Route exact path='/login' element={<Login/>}/>
             <Route exact path='/signup' element={<Signup/>}/>

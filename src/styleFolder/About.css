@@ -1,0 +1,24 @@
+#main-about-component{
+    height: 90.5vh;
+    width: 100%;
+}
+#about-component{
+    background-color: white;    
+    margin-top: 4rem;
+    border-radius: 0.3rem;
+    padding: 1.5rem;
+    height: 100%;
+}
+#about-component h1{
+    padding-left: 0.4rem;
+    font-size: 1.7rem;
+    border-left: 0.5rem solid #57c9b6;
+    border-radius: 0.1rem;
+    color: rgb(62, 62, 62);
+    margin-bottom: -0.1rem;
+    margin-top: 0.8rem;
+}
+#about-component p{
+    color: rgb(102, 102, 102);
+    font-weight: 500;
+}
