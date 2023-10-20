@@ -35,3 +35,5 @@
 
 10. Work on Login Component ✔🟢
 
+11. work on SignUp component ✔🟢
+

@@ -1,6 +1,7 @@
 import React from 'react'
 import "../styleFolder/Login.css"
 import LoginImg from './images/log-in.png'
+import {Link} from 'react-router-dom'
 
 function Login() {
   return (
@@ -28,7 +29,7 @@ function Login() {
                       <button type="submit" className="btn btn-primary">Login</button>
 
                         <div>
-                          <h6 className="my-2">If You Don't Have Account Then <a href="/signup" role="button">SignUp</a></h6>
+                          <h6 className="my-2">If You Don't Have Account Then <Link to="/signup" role="button">SignUp</Link></h6>
                         </div>
                     </form>
 

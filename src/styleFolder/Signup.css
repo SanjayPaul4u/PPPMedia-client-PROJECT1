@@ -1,0 +1,21 @@
+#main-signup-component{
+    background-color: white;
+    margin-top: 4rem;
+    height: 90vh;
+    border-radius: 0.3rem;
+    padding: 1.3rem;
+}
+#signup-header{
+    font-size: 1.6rem;
+    color: rgb(82, 82, 82);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#signup-form-div{
+    padding: 0rem 23rem 0 23rem;
+}
+#signup-form-div form{
+    border: 0.3rem solid #aaeeea;
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
