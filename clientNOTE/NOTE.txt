@@ -37,3 +37,5 @@
 
 11. work on SignUp component ✔🟢
 
+12. Simple Work(styling) on User component ✔🟢 
+

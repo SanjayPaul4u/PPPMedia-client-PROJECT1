@@ -4,7 +4,7 @@ import About from './components/About';
 import Error404page from './components/Error404page';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import User from './components/User';
+import User from './components/user/User';
 // import Footer from './components/Footer';
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
 

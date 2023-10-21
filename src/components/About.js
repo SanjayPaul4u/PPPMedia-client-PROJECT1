@@ -6,7 +6,7 @@ function About() {
     <div id='main-about-component'>
         <div id='about-component'  className='container'>
           <h1>What is PPP Media?</h1>
-          <p>PPP Media - is a Social media application where you can hangout with other people, means you can watch photos other people, you can like, comment on thier photo and you can also upload your photo - you can edit, delete your uploads."
+          <p>PPP Media - is a Social media application where you can hangout with other people, means you can watch photos other people, you can like, comment on thier photo and you can also upload your photo - you can edit, delete your uploads."</p>
 
           <h1>Featurs of PPP Media?</h1>
           <ul>
@@ -35,7 +35,7 @@ function About() {
             <li>Lorem ipsum dolor sit amet.</li>
             <li>Lorem ipsum dolor sit amet consectetur.</li>
           </ul>
-    </p>
+    
         </div>
     </div>
   )

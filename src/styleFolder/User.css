@@ -1,0 +1,100 @@
+#main-user-component{
+    height: 90vh;
+    margin-top: 4rem;
+
+}
+#user-component{
+    height: 100%;
+    /* background-color: white; */
+    border-radius: 0.3rem;
+}
+
+#user-row{
+    height: 100%;
+}
+#user-profile{
+    /* background-color: red; */
+}
+#users-photos{
+    /* background-color: white; */
+    min-height: 100%;
+    height: auto;
+    border-radius: 0.3rem;
+
+}
+#user-profile-fix-div{
+    background-color: white;
+    top: 4rem;
+    left: 3.7rem;
+    width: 29.5%;
+    height: 90%;
+    border-radius: 0.3rem;
+}
+
+/* STYLING 'USERPHOTOS' COMPONENT */
+
+#main-user-photos{
+    /* background-color: red;
+    margin: 0; */
+}
+#main-user-photos-heading{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    font-size: 1.7rem;
+}
+#user-photos-card-body{
+    position: relative;
+}
+#user-photos-card-body #title-div{
+    position: absolute;
+    color: transparent;
+    width: 88%;
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+
+}
+#user-photos-card-body #title-div:hover{
+    color: white;
+    background-color: rgba(33, 33, 33, 0.446);
+}
+
+
+/* STYLING USER PROFILE */
+#dp-image{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+#main-userprofile #first-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    padding: 1rem;
+    border: 0.7rem solid #72d9c850;
+    border-radius: 0.8rem;
+
+}
+#main-userprofile #second-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.7rem solid #72d9c850;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 0.7rem;
+}
+#main-userprofile #second-div input{
+    border: none;
+    border-bottom: 0.3rem solid rgb(93, 93, 93);
+}
+
+
+#main-userprofile #second-div button{
+    background-color: #39b8a3;
+    border: none;
+}
+
