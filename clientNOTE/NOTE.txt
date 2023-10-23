@@ -39,3 +39,6 @@
 
 12. Simple Work(styling) on User component ✔🟢 
 
+13. Refactoring
+
+14. Sample upload photo showing - modal✔🟢

@@ -23,7 +23,7 @@
 
 }
 #user-profile-fix-div{
-    background-color: white;
+    /* background-color: red; */
     top: 4rem;
     left: 3.7rem;
     width: 29.5%;
@@ -66,34 +66,39 @@
     width: 10rem;
     border-radius: 50%;
 }
-#main-userprofile #first-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem;
-    padding: 1rem;
-    border: 0.7rem solid #72d9c850;
-    border-radius: 0.8rem;
+#main-userprofile{
+    background-color: white;
+    height: 48%;
+    border-radius: 0.3rem;
+
 
 }
-#main-userprofile #second-div{
+#main-userprofile #main-userprofile-body{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 0.7rem solid #72d9c850;
-    margin: 2rem;
     padding: 1rem;
-    border-radius: 0.7rem;
+    border-radius: 0.8rem;
 }
-#main-userprofile #second-div input{
+#main-photo-upload{
+    height: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    margin-top: 1rem;
+}
+#main-photo-upload input{
     border: none;
     border-bottom: 0.3rem solid rgb(93, 93, 93);
 }
 
 
-#main-userprofile #second-div button{
+#main-photo-upload button{
     background-color: #39b8a3;
     border: none;
 }
