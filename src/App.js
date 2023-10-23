@@ -7,6 +7,8 @@ import Signup from './components/Signup';
 import User from './components/user/User';
 // import Footer from './components/Footer';
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
+import PhotoState from './context/photos/photoState';
+
 
 
 
@@ -24,6 +26,7 @@ function App() {
   
   return (
     <>
+    <PhotoState>
     <BrowserRouter>
       <Navbar/>
         <Routes>
@@ -39,6 +42,7 @@ function App() {
         {/* <Footer/> */}
 
     </BrowserRouter>
+    </PhotoState>
     </>
   );
 }

@@ -42,3 +42,12 @@
 13. Refactoring
 
 14. Sample upload photo showing - modal✔🟢
+---------------------------------------------------
+              API CALL  
+---------------------------------------------------
+
+15. Photos upload - api call - by axios  ✔🟢
+    -npm i axios
+    -import React from "react";
+    -import axios from 'axios';
+    - check file for better understand

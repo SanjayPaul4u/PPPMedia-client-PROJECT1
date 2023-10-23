@@ -1,7 +1,9 @@
 import React from 'react'
 import "../../styleFolder/User.css"
 
+
 function Userphotos() {
+    
   return (
     <div id='main-user-photos'>
         {/* header */}
