@@ -46,8 +46,10 @@ function Photoupload(props) {
     for (let index = 0; index < files.length; index++) {
       formData.append("files", files[index])      
     }
-    // console.log(data);
-    await uploadPhoto(formData);    
+    await uploadPhoto(formData);
+    // after uploading value will be blank
+    setTitle("");
+    setFiles("");
   }
 
  
@@ -63,11 +65,11 @@ function Photoupload(props) {
             <input type="file" className="form-control d-none" id="exampleInputFiles1" aria-describedby="filesHelp" name='files' ref={chooseFileRef}  multiple onChange={onChangeFilesFunc} accept='image/jpeg, image/png, image/jpg' onClick={props.modalOpenRefFunc}></input>
 
             <label htmlFor="exampleInputTitle1" className="form-label">Title: </label>
-            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="titleHelp" name='title' placeholder='Set Title Here' onChange={onChangeTitleFunc} ></input>
-
-            <button  className="btn btn-sm btn-success mt-2" onClick={onClickUploadPhoto}>Upload Photos</button>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="titleHelp" name='title' value={title} placeholder='Set Title Here' onChange={onChangeTitleFunc} ></input>
+            {/* display none button */}
+            <button  className="btn btn-sm btn-success mt-2 d-none" onClick={onClickUploadPhoto} ref={props.modalUploadRef}>Upload Photos</button>
         </div>
-        <img src={addImg} alt="errImg" style={{width:"3rem"}} onClick={chooseFileFunc}/> <br />
+        <img className='mt-2' src={addImg} alt="errImg" style={{width:"3rem"}} onClick={chooseFileFunc}/> <br />
     </div>
 
     

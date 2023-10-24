@@ -8,12 +8,20 @@ import Userphotos from './Userphotos'
 
 function User() {
   const modalOpenRef = useRef();
+  const modalUploadRef = useRef();
+  const modalCloseRef = useRef();
+
   const [filesArrForModal, setfilesArrForModal] = useState(null);
   const [titleForModal, setTitleForModal] = useState("");
 
   // MODAL OPEN REF FUNCTION
   const modalOpenRefFunc = () =>{
     modalOpenRef.current.click();
+  }
+  const modalUploadRefFunc = ()=>{
+    modalUploadRef.current.click();
+    modalCloseRef.current.click();
+    setTitleForModal("");
   }
   
   return (
@@ -32,11 +40,11 @@ function User() {
             <div className="modal-content">
               <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">Check Your Photos and Upload...</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ref={modalCloseRef}></button>
               </div>
               <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                  <button type="button" className="btn btn-primary">Upload</button>
+                  <button type="button" onClick={modalUploadRefFunc} className="btn btn-primary">Upload</button>
               </div>
               <div className="modal-body">
                   <div className="row">
@@ -63,7 +71,7 @@ function User() {
           {/* FIRST ROW - USER PROFILE */}
           <div id='user-profile' className="com-4 col-md-4 col-xl-4">
             <div id='user-profile-fix-div' className='fixed-top'>
-              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal}/>                    
+              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef}/>                    
             </div>
           </div>
 
