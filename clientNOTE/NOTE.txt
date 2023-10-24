@@ -51,5 +51,12 @@
     -import React from "react";
     -import axios from 'axios';
     - check file for better understand
+
+    - // "proxy":"http://localhost:4000", in package.json file
+    - // const port = process.env.PORT || 7000;
+    - restart client and server file both
+
   
 16. Refactoring ✔🟢
+
+17. Get All Photos - api call - by axios  ✔🟢

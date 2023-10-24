@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import  '../../styleFolder/Home.css'
 import {Link} from 'react-router-dom'
+import PhotoContext from '../../context/photos/photoContext'
+
+
 
 function Uploads() {
+  const p_context = useContext(PhotoContext);
+  const {getAllPhoto, allPhotos} = p_context;
+
+  useEffect(() => {
+    getAllPhoto();
+    // eslint-disable-next-line
+  }, [])
+
   return (
     <div>
         {/* PHOTO UPLOAD CARD */}
@@ -14,28 +25,33 @@ function Uploads() {
             </div>
         </div>
 
-         {/* FETCHING PHOTOS CARD */}
-         <div className="home-card my-4" id='upload-card'>
-            <div className="card-body">
+        {/* FETCHING PHOTOS CARD */}
+        {allPhotos.length!==0 && allPhotos.map((element)=>{
+          return <div key={element._id} className="home-card my-4" id='upload-card'>
+          <div className="card-body">
 
-              <div className='d-flex justify-content-between'>
-                <div className='d-flex' id='dp-div'>
-                  <img src="https://cdn.pixabay.com/photo/2023/10/12/14/41/town-8310950_1280.jpg" className="" id='dp-img' alt="err"/>
-                  <div>
-                    <h4 id='dp-name'>Sanjay Pual</h4>
-                    <p id='db-about'>Set you about section</p>
-                  </div>
+            <div className='d-flex justify-content-between'>
+              <div className='d-flex' id='dp-div'>
+                <img src="https://cdn.pixabay.com/photo/2023/10/12/14/41/town-8310950_1280.jpg" className="" id='dp-img' alt="err"/>
+                <div>
+                  <h4 id='dp-name'>Sanjay Pual</h4>
+                  <p id='db-about'>Set you about section</p>
                 </div>
-                <i id='follow-icon' className="fa-solid fa-plus"></i>
-              </div>  
-              <hr id='dp-line'/>
+              </div>
+              <i id='follow-icon' className="fa-solid fa-plus"></i>
+            </div>  
+            <hr id='dp-line'/>
 
-              <p className="card-text" id='upload-title'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <img src="https://cdn.pixabay.com/photo/2023/09/18/20/01/woman-8261342_1280.jpg" className="card-img-top" alt="err"/>
-            
-            </div>
-            
-          </div>                 
+            <p className="card-text" id='upload-title'>{element.title}.</p>
+            {element.files.length ===0 && <h6>No uploaded Photos to Display</h6>}
+            {element.files.map((element)=>{
+              return <img key={element.filePath} src={`data:${element.fileType};base64,${element.imagebase64}`} className="card-img-top" alt="err"/> 
+            })}
+
+          </div>            
+        </div> 
+        })}
+                         
     </div>
 
   )
