@@ -71,7 +71,7 @@ const AuthState = (props)=>{
     }
 
     
-    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail}}>
+    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail}}>
         {props.children}
     </AuthContext.Provider>
 }

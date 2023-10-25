@@ -80,3 +80,5 @@ ________________________________________________________________________________
     - const navigate = useNavigate();
     - navigate('/login');
     - use navigate () in USE-EFFECT-FUNCTION or ANY OTHER FUNCTION
+
+25. Logout Button Create  ✔🟢

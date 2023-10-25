@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useLocation} from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import '../styleFolder/Navbar.css'
 import socialMediaImg from './images/letter.png'
 import AuthContext from '../context/auth/authContext';
@@ -7,14 +7,16 @@ import AuthContext from '../context/auth/authContext';
 
 
 
+
 function Navbar() {
     const a_context = useContext(AuthContext);
-    const {getUser, userEmail} = a_context;
+    const {getUser, userEmail, setUserEmail} = a_context;
 
     const location = useLocation();
     const [path, setPath] = useState(location.pathname)
 
-     
+    // USE NAVIGATE
+    const navigate = useNavigate();
 
     useEffect(() => {
         setPath(location.pathname);
@@ -23,12 +25,18 @@ function Navbar() {
           }
         // eslint-disable-next-line
     }, [location])
-    console.log(path);
+    // console.log(path);
+
+    // ON CLICK LOGOUT FUNCTION
+    const onClickLogoutFunc = ()=>{
+        localStorage.removeItem("token");
+        setUserEmail("");
+        navigate('/login');
+     }
     
 const myStyle = {
     color : "#515151",
     fontWeight:"bold",
-    backgroundColor: "#3ecdb4b8",
     borderBottom: "0.2rem solid #515151",
     marginBottom:"-5rem",
     // transition: "all 0.5s"
@@ -46,26 +54,33 @@ const myStyle = {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
+                    
+                    
+                    {!localStorage.getItem("token")?
+                        <>
+                        <li className="nav-item">
+                        <Link className="nav-link mx-1" style={path==="/login"?myStyle:{}} aria-current="page" to="/login">Login</Link>
+                        </li>      
 
-                    <Link className="nav-link active mx-1" style={path==='/home'|| path==='/'?myStyle:{}}  aria-current="page" to="/home">Home</Link>
-                    </li>    
+                        <li className="nav-item">
+                        <Link className="nav-link mx-1" style={path==="/signup"?myStyle:{}} aria-current="page" to="/signup">Signup</Link>
+                        </li>
+                        </>:
+                        <>
+                        <li className="nav-item">
+                        <Link className="nav-link active mx-1" style={path==='/home'|| path==='/'?myStyle:{}}  aria-current="page" to="/home">Home</Link>
+                        </li>    
 
-                    <li className="nav-item">
-                    <Link className="nav-link mx-1" style={path==="/user"?myStyle:{}} aria-current="page" to="/user">User</Link>
-                    </li>     
+                        <li className="nav-item">
+                        <Link className="nav-link mx-1" style={path==="/user"?myStyle:{}} aria-current="page" to="/user">User</Link>
+                        </li>     
 
-                    <li className="nav-item">
-                    <Link className="nav-link mx-1" style={path==="/about"?myStyle:{}} aria-current="page" to="/about">About</Link>
-                    </li>  
-
-                    <li className="nav-item">
-                    <Link className="nav-link mx-1" style={path==="/login"?myStyle:{}} aria-current="page" to="/login">Login</Link>
-                    </li>      
-
-                    <li className="nav-item">
-                    <Link className="nav-link mx-1" style={path==="/signup"?myStyle:{}} aria-current="page" to="/signup">Signup</Link>
-                    </li>
+                        <li className="nav-item">
+                        <Link className="nav-link mx-1" style={path==="/about"?myStyle:{}} aria-current="page" to="/about">About</Link>
+                        </li>  
+                        <button className="btn btn-danger btn-sm" onClick={onClickLogoutFunc}>LogOut</button>
+                        </>
+                    }
                 </ul>
                 <form className="d-flex">
                     <Link className="nav-link mx-1" aria-current="page" to="/user">{userEmail}</Link>
