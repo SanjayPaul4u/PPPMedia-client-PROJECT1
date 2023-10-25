@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import '../styleFolder/Navbar.css'
 import socialMediaImg from './images/letter.png'
+import AuthContext from '../context/auth/authContext';
+
 
 
 function Navbar() {
+    const a_context = useContext(AuthContext);
+    const {getUser, userEmail} = a_context;
+
     const location = useLocation();
     const [path, setPath] = useState(location.pathname)
 
     useEffect(() => {
         setPath(location.pathname);
+        getUser();
+        // eslint-disable-next-line
     }, [location])
     console.log(path);
     
@@ -53,10 +60,11 @@ const myStyle = {
 
                     <li className="nav-item">
                     <Link className="nav-link mx-1" style={path==="/signup"?myStyle:{}} aria-current="page" to="/signup">Signup</Link>
-                    </li>      
-
+                    </li>
                 </ul>
                 <form className="d-flex">
+                    <Link className="nav-link mx-1" aria-current="page" to="/user">{userEmail}</Link>
+
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button>
                 </form>

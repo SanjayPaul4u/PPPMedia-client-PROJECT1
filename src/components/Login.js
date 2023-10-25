@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import "../styleFolder/Login.css"
 import LoginImg from './images/log-in.png'
 import {Link} from 'react-router-dom'
+import AuthContext from '../context/auth/authContext'
+
+
 
 function Login() {
+  const a_context = useContext(AuthContext);
+  const {LogIn} = a_context;
+  const [userData, setUserData] = useState({email: "", password: ""})
+
+
+  // ON CLICK LOGIN FUNCTION
+  const onSubmitLoginFunc = (event) =>{
+    event.preventDefault();
+    LogIn(userData);
+    setUserData({email: "", password: ""});
+  }
+
+  // INPUT ON CHANGE FUNCTION
+  const onChangeFunc = (event) =>{
+    setUserData({...userData, [event.target.name]: event.target.value})
+  }
   return (
     <div id='main-login-component' className='container'>
         <div id='login-component'>
-            <h1 id='login-header'>Login To Use PPP Media</h1>
+            <h1 id='login-header'>Login To Use PPP Media </h1>
             <hr />
 
             <div className="row">
@@ -17,14 +36,14 @@ function Login() {
                 <div id="login-form-div" className="col-6 col-md-6 col-xl-6">
                   {/* login form start*/}
 
-                    <form>
+                    <form onSubmit={onSubmitLoginFunc}>
                       <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'/>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' onChange={onChangeFunc} value={userData.email}/>
                       </div>
                       <div className="mb-3">
                         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" name='password'/>
+                        <input type="password" className="form-control" id="exampleInputPassword1" name='password' onChange={onChangeFunc} value={userData.password} minLength={5} required/>
                       </div>
                       <button type="submit" className="btn btn-primary">Login</button>
 

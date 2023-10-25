@@ -8,6 +8,8 @@ import User from './components/user/User';
 // import Footer from './components/Footer';
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
 import PhotoState from './context/photos/photoState';
+import AuthState from './context/auth/authState';
+
 
 
 
@@ -26,6 +28,7 @@ function App() {
   
   return (
     <>
+    <AuthState>
     <PhotoState>
     <BrowserRouter>
       <Navbar/>
@@ -43,6 +46,7 @@ function App() {
 
     </BrowserRouter>
     </PhotoState>
+    </AuthState>
     </>
   );
 }

@@ -59,7 +59,7 @@ const PhotoState = (props)=>{
                 url: "/api/upload/uploadimg",
                 data: data,
                 headers: {
-                  'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUzNzVmM2QzMWIzZDE2NDQ4MTFlYTM0In0sImlhdCI6MTY5ODIwNTkwNX0.PCbqXceHalbDhq8RzAK0TpWzpwoJZrpPbvXTkA4zFZw'},
+                  'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUzNzVmM2QzMWIzZDE2NDQ4MTFlYTM0In0sImlhdCI6MTY5ODIwNTkwNX0.PCbqXceHalbDhq8RzAK0TpWzpwoJZrpPbvXTkA4zFZw'}
               })
               console.log(response.data);
               getUserPhotos();
