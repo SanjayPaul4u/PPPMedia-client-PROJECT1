@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react'
 import "../styleFolder/Signup.css"
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import AuthContext from '../context/auth/authContext'
 
 
 function Signup() {
+  // navigate for redirect
+  const navigate = useNavigate();
+
   const a_context = useContext(AuthContext);
   const {SignUp} = a_context;
   const [userData, setUserData] = useState({    
@@ -16,10 +19,19 @@ function Signup() {
   })
 
   // ONCLICK Create User FUNCTION
-  const onclickCreateUserFunc = (event)=>{
+  const onclickCreateUserFunc = async(event)=>{
     event.preventDefault()
-    SignUp(userData);
-    setUserData({name: "",email:"",age: "",password:"",confirmPassword: ""})
+    const signupData = await SignUp(userData);
+    setUserData({name: "",email:"",age: "",password:"",confirmPassword: ""});
+
+    // redirect
+    // console.log(signupData.success);
+    if(signupData.success===true){
+      console.log("Account Created successfully");
+      navigate("/home");
+    }else{
+      console.log("Invalid Credentials");
+    }
   }
   // ALL INPUT ONCHANGE FUNCTION
   const onChangeFunc = (e)=>{

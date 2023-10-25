@@ -74,3 +74,9 @@ ________________________________________________________________________________
 22. GetUser - api call - by axios ✔🟢
 
 23. Store the Token in local Storage and Getting from local Storage ✔🟢
+
+24. {useNavigate} hook used || MAKE HOME AND USER PAGE SECRET✔🟢
+    - import {useNavigate} from 'react-router-dom'
+    - const navigate = useNavigate();
+    - navigate('/login');
+    - use navigate () in USE-EFFECT-FUNCTION or ANY OTHER FUNCTION

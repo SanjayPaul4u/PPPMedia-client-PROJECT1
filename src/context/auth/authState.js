@@ -4,6 +4,8 @@ import React, { useState } from "react";
 
 
 const AuthState = (props)=>{
+    
+
     // USER EMAIL STATE CREATE
     const [userEmail, setUserEmail] = useState("");
 
@@ -18,7 +20,7 @@ const AuthState = (props)=>{
                 }
             })
             // console.log(response.data);
-            setUserEmail(response.data.userData.email);            
+            setUserEmail(response.data.userData.email);                   
         } catch (error) {
             console.log(error.response.data);
         }
@@ -36,11 +38,12 @@ const AuthState = (props)=>{
                 },
             })
             // console.log(response.data);  
-            localStorage.setItem("token", response.data.token)
-            
-            getUser();          
+            localStorage.setItem("token", response.data.token);
+            getUser(); 
+            return response.data;         
         } catch (error) {
             console.log(error.response.data);
+            return error.response.data;
         }
         
     }
@@ -59,8 +62,11 @@ const AuthState = (props)=>{
             // console.log(response.data);
             localStorage.setItem("token", response.data.token);
             getUser();
+            return response.data;
         } catch (error) {
             console.log(error.response.data);
+            return error.response.data;
+        
         }
     }
 

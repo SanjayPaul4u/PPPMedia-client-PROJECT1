@@ -1,15 +1,23 @@
 import React, { useContext, useEffect } from 'react'
 import "../../styleFolder/User.css"
 import PhotoContext from '../../context/photos/photoContext'
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Userphotos() {
     const p_context = useContext(PhotoContext);
     const {getUserPhotos, userPhotos} = p_context;
+
+    // use navigate hook
+    const navigate = useNavigate();
     
     useEffect(() => {
-      getUserPhotos();
+        if(localStorage.getItem("token")){
+            getUserPhotos();
+          }else{
+            navigate('/login');
+          }
       // eslint-disable-next-line
     }, [])
     

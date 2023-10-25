@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../styleFolder/About.css"
+import { useNavigate } from 'react-router-dom';
+
 
 function About() {
+
+  // use navigate hook
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!localStorage.getItem("token")){
+      navigate('/login');
+    }
+  
+    // eslint-disable-next-line
+  }, [])
+  
+  
   return (
     <div id='main-about-component'>
         <div id='about-component'  className='container'>

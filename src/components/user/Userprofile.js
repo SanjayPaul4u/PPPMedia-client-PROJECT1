@@ -14,7 +14,7 @@ function Userprofile(props) {
     </div>
 
     {/* PHOTO UPLOAD SIDEBAR */}
-    <Photoupload modalOpenRefFunc={props.modalOpenRefFunc} setfilesArrForModal={props.setfilesArrForModal} setTitleForModal={props.setTitleForModal} modalUploadRef={props.modalUploadRef}/>
+    <Photoupload modalOpenRefFunc={props.modalOpenRefFunc} setfilesArrForModal={props.setfilesArrForModal} setTitleForModal={props.setTitleForModal} modalUploadRef={props.modalUploadRef} titleForModal={props.titleForModal}/>
       </>
   )
 }

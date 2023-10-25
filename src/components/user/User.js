@@ -18,9 +18,15 @@ function User() {
   const modalOpenRefFunc = () =>{
     modalOpenRef.current.click();
   }
+
+  // MODAL UPLOAS REF FUNCTION
   const modalUploadRefFunc = ()=>{
     modalUploadRef.current.click();
     modalCloseRef.current.click();
+    setTitleForModal("");
+  }
+  // ON CLICK CHANGE FUNCTION FOR INPUT
+  const onClickChangeTitleForInput = () =>{
     setTitleForModal("");
   }
   
@@ -40,10 +46,10 @@ function User() {
             <div className="modal-content">
               <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">Check Your Photos and Upload...</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ref={modalCloseRef}></button>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ref={modalCloseRef} onClick={onClickChangeTitleForInput}></button>
               </div>
               <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={onClickChangeTitleForInput}>Cancel</button>
                   <button type="button" onClick={modalUploadRefFunc} className="btn btn-primary">Upload</button>
               </div>
               <div className="modal-body">
@@ -71,7 +77,7 @@ function User() {
           {/* FIRST ROW - USER PROFILE */}
           <div id='user-profile' className="com-4 col-md-4 col-xl-4">
             <div id='user-profile-fix-div' className='fixed-top'>
-              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef}/>                    
+              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef} titleForModal={titleForModal}/>                    
             </div>
           </div>
 

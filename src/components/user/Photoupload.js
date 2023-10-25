@@ -52,6 +52,8 @@ function Photoupload(props) {
     setFiles("");
   }
 
+
+  
  
   return (
     
@@ -65,7 +67,7 @@ function Photoupload(props) {
             <input type="file" className="form-control d-none" id="exampleInputFiles1" aria-describedby="filesHelp" name='files' ref={chooseFileRef}  multiple onChange={onChangeFilesFunc} accept='image/jpeg, image/png, image/jpg' onClick={props.modalOpenRefFunc}></input>
 
             <label htmlFor="exampleInputTitle1" className="form-label">TITLE: </label>
-            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="titleHelp" name='title' value={title} placeholder='Set Title Here' onChange={onChangeTitleFunc} ></input>
+            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="titleHelp" name='title' value={props.titleForModal} placeholder='Set Title Here' onChange={onChangeTitleFunc} ></input>
             {/* display none button */}
             <button  className="btn btn-sm btn-success mt-2 d-none" onClick={onClickUploadPhoto} ref={props.modalUploadRef}>Upload Photos</button>
 

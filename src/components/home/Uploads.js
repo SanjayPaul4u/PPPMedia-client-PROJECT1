@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import  '../../styleFolder/Home.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import PhotoContext from '../../context/photos/photoContext'
+
 
 
 
@@ -9,8 +10,15 @@ function Uploads() {
   const p_context = useContext(PhotoContext);
   const {getAllPhoto, allPhotos} = p_context;
 
+  // use navigate hook
+  const navigate = useNavigate();
+
   useEffect(() => {
-    getAllPhoto();
+    if(localStorage.getItem("token")){
+      getAllPhoto();
+    }else{
+      navigate('/login');
+    }
     // eslint-disable-next-line
   }, [])
 

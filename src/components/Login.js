@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import "../styleFolder/Login.css"
 import LoginImg from './images/log-in.png'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import AuthContext from '../context/auth/authContext'
+
 
 
 
@@ -10,13 +11,24 @@ function Login() {
   const a_context = useContext(AuthContext);
   const {LogIn} = a_context;
   const [userData, setUserData] = useState({email: "", password: ""})
+  // use navigae for redirect
+  const navigate = useNavigate();
 
 
   // ON CLICK LOGIN FUNCTION
-  const onSubmitLoginFunc = (event) =>{
+  const onSubmitLoginFunc = async(event) =>{
     event.preventDefault();
-    LogIn(userData);
+    const loginData = await LogIn(userData);
     setUserData({email: "", password: ""});
+
+    // console.log(loginData.success);
+    // redirect
+    if(loginData.success===true){
+      console.log("LoggedIn successfully");
+      navigate("/home");
+    }else{
+      console.log("Invalid Credentials");
+    }
   }
 
   // INPUT ON CHANGE FUNCTION
