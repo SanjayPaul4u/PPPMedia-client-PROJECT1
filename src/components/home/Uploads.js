@@ -20,7 +20,7 @@ function Uploads() {
         <div className="home-card" style={{borderRadius:"0.2rem"}}>
             <div className="card-body">
             <h4 className="card-title" id='uploadTitle'>Upload Your Photo</h4>            
-            <Link id='cameraIcon' to="/asdfasdfad"><i className="fa-solid fa-camera"></i></Link>
+            <Link id='cameraIcon' to="/user"><i className="fa-solid fa-camera"></i></Link>
             <hr style={{height:"0.2rem", margin:"-0.2rem"}}/>
             </div>
         </div>

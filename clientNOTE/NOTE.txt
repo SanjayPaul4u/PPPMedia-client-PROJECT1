@@ -1,4 +1,4 @@
-1ST STEP - COMPLETE BACKEND(API CALL, some changes will be later)
+1ST STEP - COMPLETE BACKEND(API create, some changes will be later)
 2ND STEP - COMPLETE FRONTENT PART (react, css, all style)
 3RD STEP - COMBINE BACKEND AND FRONTEND
 
@@ -66,3 +66,5 @@ ________________________________________________________________________________
 
 17. Get All Photos - api call - by axios  ✔🟢
 18. Get Users Photos - api call - by axios  ✔🟢
+
+19. Refactored ✔🟢

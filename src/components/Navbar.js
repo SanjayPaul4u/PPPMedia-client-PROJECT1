@@ -37,14 +37,14 @@ const myStyle = {
                     <li className="nav-item">
 
                     <Link className="nav-link active mx-1" style={path==='/home'|| path==='/'?myStyle:{}}  aria-current="page" to="/home">Home</Link>
-                    </li>     
-
-                    <li className="nav-item">
-                    <Link className="nav-link mx-1" style={path==="/about"?myStyle:{}} aria-current="page" to="/about">About</Link>
                     </li>    
 
                     <li className="nav-item">
                     <Link className="nav-link mx-1" style={path==="/user"?myStyle:{}} aria-current="page" to="/user">User</Link>
+                    </li>     
+
+                    <li className="nav-item">
+                    <Link className="nav-link mx-1" style={path==="/about"?myStyle:{}} aria-current="page" to="/about">About</Link>
                     </li>  
 
                     <li className="nav-item">
