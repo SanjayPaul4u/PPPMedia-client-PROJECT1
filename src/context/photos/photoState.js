@@ -18,7 +18,7 @@ const PhotoState = (props)=>{
           method: "get",
           url: "/api/upload/getallimages",
           headers:{
-            "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUzNzVmM2QzMWIzZDE2NDQ4MTFlYTM0In0sImlhdCI6MTY5ODIwNTkwNX0.PCbqXceHalbDhq8RzAK0TpWzpwoJZrpPbvXTkA4zFZw"
+            "auth-token": localStorage.getItem("token")
           }
         })
 
@@ -37,7 +37,7 @@ const PhotoState = (props)=>{
           method:"get",
           url:"/api/upload/getuserimages",
           headers:{
-            "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUzNzVmM2QzMWIzZDE2NDQ4MTFlYTM0In0sImlhdCI6MTY5ODIwNTkwNX0.PCbqXceHalbDhq8RzAK0TpWzpwoJZrpPbvXTkA4zFZw"
+            "auth-token": localStorage.getItem("token")
           }
         })
         const user_data = await response.data.user_Images;
@@ -59,7 +59,7 @@ const PhotoState = (props)=>{
                 url: "/api/upload/uploadimg",
                 data: data,
                 headers: {
-                  'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUzNzVmM2QzMWIzZDE2NDQ4MTFlYTM0In0sImlhdCI6MTY5ODIwNTkwNX0.PCbqXceHalbDhq8RzAK0TpWzpwoJZrpPbvXTkA4zFZw'}
+                  'auth-token': localStorage.getItem("token")}
               })
               console.log(response.data);
               getUserPhotos();

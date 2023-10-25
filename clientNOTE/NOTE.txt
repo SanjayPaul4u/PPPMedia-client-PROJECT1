@@ -72,3 +72,5 @@ ________________________________________________________________________________
 20. SignUp - api call - by axios  ✔🟢
 21. LogIn - api call - by axios  ✔🟢
 22. GetUser - api call - by axios ✔🟢
+
+23. Store the Token in local Storage and Getting from local Storage ✔🟢
