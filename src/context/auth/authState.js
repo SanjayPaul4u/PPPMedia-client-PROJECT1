@@ -14,10 +14,7 @@ const AuthState = (props)=>{
         try {
             const response = await axios({
                 method: "get",
-                url: "/api/auth/getuser",
-                headers:{
-                    "auth-token": localStorage.getItem("token")
-                }
+                url: "/api/auth/getuser"
             })
             // console.log(response.data);
             setUserEmail(response.data.userData.email);                   
@@ -37,8 +34,7 @@ const AuthState = (props)=>{
                     "Content-Type": "application/json" //important
                 },
             })
-            // console.log(response.data);  
-            localStorage.setItem("token", response.data.token);
+            // console.log(response.data); 
             getUser(); 
             return response.data;         
         } catch (error) {
@@ -60,7 +56,6 @@ const AuthState = (props)=>{
                 }
             })
             // console.log(response.data);
-            localStorage.setItem("token", response.data.token);
             getUser();
             return response.data;
         } catch (error) {

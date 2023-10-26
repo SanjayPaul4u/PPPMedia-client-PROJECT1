@@ -16,10 +16,7 @@ const PhotoState = (props)=>{
       try {
         const response = await axios({
           method: "get",
-          url: "/api/upload/getallimages",
-          headers:{
-            "auth-token": localStorage.getItem("token")
-          }
+          url: "/api/upload/getallimages"
         })
 
         setAllPhotos(response.data.all_Images);
@@ -35,10 +32,7 @@ const PhotoState = (props)=>{
       try {
         const response = await axios({
           method:"get",
-          url:"/api/upload/getuserimages",
-          headers:{
-            "auth-token": localStorage.getItem("token")
-          }
+          url:"/api/upload/getuserimages"
         })
         const user_data = await response.data.user_Images;
         // console.log(user_data);
@@ -57,9 +51,7 @@ const PhotoState = (props)=>{
               const response = await axios({
                 method: "post",
                 url: "/api/upload/uploadimg",
-                data: data,
-                headers: {
-                  'auth-token': localStorage.getItem("token")}
+                data: data
               })
               console.log(response.data);
               getUserPhotos();

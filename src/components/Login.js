@@ -21,7 +21,7 @@ function Login() {
     const loginData = await LogIn(userData);
     setUserData({email: "", password: ""});
 
-    // console.log(loginData.success);
+    console.log(loginData);
     // redirect
     if(loginData.success===true){
       console.log("LoggedIn successfully");
