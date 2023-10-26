@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import "../styleFolder/About.css"
 import { useNavigate } from 'react-router-dom';
+import GetCookie from '../hooks/getCookie';
 
 
 function About() {
@@ -9,7 +10,7 @@ function About() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!localStorage.getItem("token")){
+    if(!GetCookie('auth-token')){
       navigate('/login');
     }
   

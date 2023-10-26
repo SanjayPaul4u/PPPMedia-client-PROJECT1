@@ -88,4 +88,14 @@ ________________________________________________________________________________
 
 28. failed to get token from react component❌
 
-29. Learning JS Cookie - TO DO
+29. Learning JS Cookie and Used in app - ✔🟢
+    - npm i js-cookie
+    - Cookie.set(cookieName, value, {
+        expires: 600000, // 1 day
+        secure: true,
+        sameSite : "strict",
+        path: "/"
+    })
+    - return Cookie.get(cookieName);
+    - Cookie.remove(cookieName);
+    - See the file structure

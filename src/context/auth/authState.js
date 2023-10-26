@@ -1,6 +1,9 @@
 import axios from "axios";
 import AuthContext from "./authContext";
 import React, { useState } from "react";
+import RemoveCookie from "../../hooks/removeCookie";
+import SetCookie from "../../hooks/setCookie";
+
 
 
 const AuthState = (props)=>{
@@ -35,6 +38,9 @@ const AuthState = (props)=>{
                 },
             })
             // console.log(response.data); 
+            RemoveCookie('auth-token'); // first remove cookie
+            SetCookie('auth-token', response.data.token) // then set cookie
+            
             getUser(); 
             return response.data;         
         } catch (error) {
@@ -55,7 +61,10 @@ const AuthState = (props)=>{
                     "Content-Type": "application/json"
                 }
             })
-            // console.log(response.data);
+            // console.log(response.data.token);
+            RemoveCookie('auth-token'); // first remove cookie
+            SetCookie('auth-token', response.data.token) // then set cookie
+            
             getUser();
             return response.data;
         } catch (error) {

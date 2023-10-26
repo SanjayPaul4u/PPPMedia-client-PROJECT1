@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import "../../styleFolder/User.css"
 import PhotoContext from '../../context/photos/photoContext'
+import GetCookie from '../../hooks/getCookie';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -9,10 +12,14 @@ function Userphotos() {
     const {getUserPhotos, userPhotos} = p_context;
 
     // use navigate hook
-   
+    const navigate = useNavigate();
     
     useEffect(() => {
-            getUserPhotos();          
+        if(GetCookie("auth-token")){
+            getUserPhotos(); 
+        }else{
+            navigate('/login');
+        }
       // eslint-disable-next-line
     }, [])
     
