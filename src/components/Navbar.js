@@ -13,7 +13,7 @@ import RemoveCookie from '../hooks/removeCookie';
 
 function Navbar() {
     const a_context = useContext(AuthContext);
-    const {getUser, userEmail, setUserEmail} = a_context;
+    const {getUser, userEmail, setUserEmail, LogOut} = a_context;
 
     const location = useLocation();
     const [path, setPath] = useState(location.pathname)
@@ -32,6 +32,7 @@ function Navbar() {
 
     // ON CLICK LOGOUT FUNCTION
     const onClickLogoutFunc = ()=>{
+        LogOut();
         console.log("logout");
         setUserEmail("");
         RemoveCookie("auth-token");

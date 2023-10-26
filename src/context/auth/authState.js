@@ -73,9 +73,24 @@ const AuthState = (props)=>{
         
         }
     }
+    // LOGOUT API CALL - BY AXIOS
+    const LogOut = async ()=>{
+        try {
+            const response = await axios({
+                method: "get",
+                url:"/api/auth/logout",
+            })
+            console.log(response.data);
+            return response.data;
+        } catch (error) {
+            console.log(error.response.data);
+            return error.response.data;
+        
+        }
+    }
 
     
-    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail}}>
+    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut}}>
         {props.children}
     </AuthContext.Provider>
 }
