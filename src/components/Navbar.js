@@ -7,13 +7,9 @@ import GetCookie from '../hooks/getCookie';
 import RemoveCookie from '../hooks/removeCookie';
 
 
-
-
-
-
 function Navbar() {
     const a_context = useContext(AuthContext);
-    const {getUser, userEmail, setUserEmail, LogOut} = a_context;
+    const {getUser, userEmail, setUserEmail, LogOut, emailLoading} = a_context;
 
     const location = useLocation();
     const [path, setPath] = useState(location.pathname)
@@ -25,6 +21,8 @@ function Navbar() {
         setPath(location.pathname);
         if(GetCookie("auth-token")){
             getUser();
+        }else{
+            setUserEmail("");
         }
         // eslint-disable-next-line
     }, [location])
@@ -91,7 +89,7 @@ const myStyle = {
                     }
                 </ul>
                 <form className="d-flex">
-                    <Link className="nav-link mx-1" aria-current="page" to="/user">{userEmail}</Link>
+                    <Link className="nav-link mx-1" aria-current="page" to="/user">{emailLoading?"Loading...":userEmail}</Link>
 
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button>

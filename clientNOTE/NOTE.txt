@@ -103,3 +103,5 @@ ________________________________________________________________________________
 30. Logout Refactoring ✔🟢
 
 40. Work on Alert ✔🟢
+
+41. Work Done on Spinner and Refactored ✔🟢

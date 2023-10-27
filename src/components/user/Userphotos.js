@@ -3,21 +3,24 @@ import "../../styleFolder/User.css"
 import PhotoContext from '../../context/photos/photoContext'
 import GetCookie from '../../hooks/getCookie';
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../Spinner';
+
 
 
 
 
 function Userphotos() {
     const p_context = useContext(PhotoContext);
-    const {getUserPhotos, userPhotos} = p_context;
+    const {getUserPhotos, userPhotos, userPhotoLoading} = p_context;
 
     // use navigate hook
     const navigate = useNavigate();
     
     useEffect(() => {
-        if(GetCookie("auth-token")){
+        if(GetCookie("auth-token") && userPhotos.length===0){
             getUserPhotos(); 
-        }else{
+        }
+        if(!GetCookie("auth-token")){
             navigate('/login');
         }
       // eslint-disable-next-line
@@ -32,7 +35,12 @@ function Userphotos() {
 
         <div className="row">    
 
-            {userPhotos.length===0 && <p>No Photos Uploaded</p>}
+            {/* SPINNER */}
+            {userPhotoLoading && <div className='mt-4 text-center p-2' style={{backgroundColor: 'white', borderRadius:"0.3rem"}}>
+                <Spinner/>
+            </div>}
+            
+            {userPhotos.length===0 && !userPhotoLoading && <p>No Photos Uploaded</p>}
             {userPhotos.map((element)=>{
 
                 return <div key={element._id} className="col-4 col-md-4 col-xl-4 my-2">

@@ -1,25 +1,25 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect} from 'react'
 import  '../../styleFolder/Home.css'
 import {Link, useNavigate} from 'react-router-dom'
 import PhotoContext from '../../context/photos/photoContext'
 import GetCookie from '../../hooks/getCookie'
-
-
+import Spinner from '../Spinner'
 
 
 
 function Uploads() {
   const p_context = useContext(PhotoContext);
-  const {getAllPhoto, allPhotos} = p_context;
+  const {getAllPhoto, allPhotos, allPhotoLoading} = p_context;
 
   // use navigate hook
   const navigate = useNavigate();
   
   useEffect(() => {
-    if(GetCookie("auth-token")){
+    if(GetCookie("auth-token") && allPhotos.length===0){
       getAllPhoto();
-    }else{
-      navigate('/login');
+    }
+    if(!GetCookie("auth-token")){
+      navigate("/login");
     }
     
     // eslint-disable-next-line
@@ -35,6 +35,11 @@ function Uploads() {
             <hr style={{height:"0.2rem", margin:"-0.2rem"}}/>
             </div>
         </div>
+
+        {/* SPINNER */}
+        {allPhotoLoading && <div className='mt-4 text-center p-2' style={{backgroundColor: 'white', borderRadius:"0.3rem"}}>
+          <Spinner/>
+        </div>}
 
         {/* FETCHING PHOTOS CARD */}
         {allPhotos.length!==0 && allPhotos.map((element)=>{

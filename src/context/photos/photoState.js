@@ -11,20 +11,26 @@ const PhotoState = (props)=>{
 
   const [allPhotos, setAllPhotos] = useState(photoIntials);
   const [userPhotos, setUserPhotos] = useState(userPhotosIntials);
+  const [allPhotoLoading, setAllPhotoLoading] = useState(false)
+  const [userPhotoLoading, setUserPhotoLoading] = useState(false)
+
 
   const alert_context = useContext(AlertContext);
   const {showAlert} = alert_context;
+  
 
    
     // GET ALL USER PHOTO - FOR SHOWING HOME PAGE
     const getAllPhoto = async()=>{
       try {
+        setAllPhotoLoading(true);
+
         const response = await axios({
           method: "get",
           url: "/api/upload/getallimages"
         })
-
         setAllPhotos(response.data.all_Images);
+        setAllPhotoLoading(false);
         return response.data;
         
       } catch (error) {
@@ -35,12 +41,14 @@ const PhotoState = (props)=>{
     // GET SPECIFIC USER PHOTO
     const getUserPhotos = async () =>{
       try {
+        setUserPhotoLoading(true);
         const response = await axios({
           method:"get",
           url:"/api/upload/getuserimages"
         })
         const user_data = await response.data.user_Images;
         // console.log(user_data);
+        setUserPhotoLoading(false);
         setUserPhotos(user_data)
         return response.data
       } catch (error) {
@@ -69,7 +77,7 @@ const PhotoState = (props)=>{
   }
 
 
-    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos}}>
+    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading}}>
         {props.children}
     </PhotoContext.Provider>
 }

@@ -12,12 +12,14 @@ function Alert() {
         return capitalized_word;
     }
   return (
-    <>
+    <div>
         {alert && <div className={`container fixed-top alert alert-${alert.type} alert-dismissible fade show`} role="alert">
         <strong>{capitalizedWord(alert.type)} </strong> {alert.message}
-        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>}  
-    </>  
+        {/* TODO - ERROR */}
+        {/* <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
+        </div>} 
+     </div> 
+      
   )
 }
 

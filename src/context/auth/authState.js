@@ -13,16 +13,20 @@ const AuthState = (props)=>{
 
     // USER EMAIL STATE CREATE
     const [userEmail, setUserEmail] = useState("");
+    const [emailLoading, setEmailLoading] = useState(false);
 
     // GETUSER API CALL - BY AXIOS 
     const getUser = async()=>{
         try {
+            setEmailLoading(true);
             const response = await axios({
                 method: "get",
                 url: "/api/auth/getuser"
             })
             // console.log(response.data);
-            setUserEmail(response.data.userData.email);                   
+            setEmailLoading(false);
+            setUserEmail(response.data.userData.email); 
+
         } catch (error) {
             console.log(error.response.data);
         }
@@ -86,6 +90,7 @@ const AuthState = (props)=>{
                 url:"/api/auth/logout",
             })
             console.log(response.data);
+            showAlert("success", "LogOut Successfully");
             return response.data;
         } catch (error) {
             console.log(error.response.data);
@@ -95,7 +100,7 @@ const AuthState = (props)=>{
     }
 
     
-    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut}}>
+    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut, emailLoading}}>
         {props.children}
     </AuthContext.Provider>
 }
