@@ -1,6 +1,8 @@
 import PhotoContext from "./photoContext"
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from 'axios';
+import AlertContext from "../alert/alertContext";
+
 
 
 const PhotoState = (props)=>{
@@ -9,6 +11,9 @@ const PhotoState = (props)=>{
 
   const [allPhotos, setAllPhotos] = useState(photoIntials);
   const [userPhotos, setUserPhotos] = useState(userPhotosIntials);
+
+  const alert_context = useContext(AlertContext);
+  const {showAlert} = alert_context;
 
    
     // GET ALL USER PHOTO - FOR SHOWING HOME PAGE
@@ -56,9 +61,10 @@ const PhotoState = (props)=>{
               console.log(response.data);
               getUserPhotos();
               getAllPhoto();
-
+              showAlert("success", "Uloaded Photo Successfully");
             } catch (error) {
-              console.log(error.response.data);;
+              console.log(error.response.data);
+              showAlert("danger", "Failed To Upload Photo");
             }
   }
 

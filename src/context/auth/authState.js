@@ -1,13 +1,15 @@
 import axios from "axios";
 import AuthContext from "./authContext";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import RemoveCookie from "../../hooks/removeCookie";
 import SetCookie from "../../hooks/setCookie";
-
+import AlertContext from "../alert/alertContext";
 
 
 const AuthState = (props)=>{
-    
+    const alert_context = useContext(AlertContext);
+    const {showAlert} = alert_context;
+
 
     // USER EMAIL STATE CREATE
     const [userEmail, setUserEmail] = useState("");
@@ -42,9 +44,11 @@ const AuthState = (props)=>{
             SetCookie('auth-token', response.data.token) // then set cookie
             
             getUser(); 
+            showAlert("success", "Account Created Successfully");
             return response.data;         
         } catch (error) {
             console.log(error.response.data);
+            showAlert("danger", "Account Creation Failed due to Invalid Credential");
             return error.response.data;
         }
         
@@ -63,12 +67,13 @@ const AuthState = (props)=>{
             })
             // console.log(response.data.token);
             RemoveCookie('auth-token'); // first remove cookie
-            SetCookie('auth-token', response.data.token) // then set cookie
-            
+            SetCookie('auth-token', response.data.token) // then set cookie                       
             getUser();
+            showAlert("success", "Loged In Successfully");
             return response.data;
         } catch (error) {
             console.log(error.response.data);
+            showAlert("danger", "Login Failed due to Invalid Credential");
             return error.response.data;
         
         }

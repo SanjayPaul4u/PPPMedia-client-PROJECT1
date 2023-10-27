@@ -9,6 +9,10 @@ import User from './components/user/User';
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
 import PhotoState from './context/photos/photoState';
 import AuthState from './context/auth/authState';
+import Alert from './components/Alert';
+import AlertState from './context/alert/alertState';
+
+
 
 
 
@@ -28,10 +32,12 @@ function App() {
   
   return (
     <>
+    <AlertState>
     <AuthState>
     <PhotoState>
     <BrowserRouter>
       <Navbar/>
+      <Alert/>
         <Routes>
             <Route exact path='/' element={<Home/>}/>
             <Route exact path='/home' element={<Home/>}/>
@@ -47,6 +53,7 @@ function App() {
     </BrowserRouter>
     </PhotoState>
     </AuthState>
+    </AlertState>
     </>
   );
 }
