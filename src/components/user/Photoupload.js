@@ -5,7 +5,8 @@ import PhotoContext from '../../context/photos/photoContext';
 
 
 function Photoupload(props) {
-  const chooseFileRef = useRef();
+  // const anyRef = useRef();
+  const chooseFileRef = useRef(props.resetFileInputRef);
   const filesArr = [];
   const p_context = useContext(PhotoContext);
   const {uploadPhoto} = p_context;
@@ -20,6 +21,7 @@ function Photoupload(props) {
   // onchnage files input function****
   const onChangeFilesFunc = async(event) =>{
     const filesObj = event.target.files;
+    console.log(filesObj);
 
     for (let index = 0; index < filesObj.length; index++) {
       const element =URL.createObjectURL(filesObj[index]);
@@ -49,7 +51,13 @@ function Photoupload(props) {
     await uploadPhoto(formData);
     // after uploading value will be blank
     setTitle("");
-    setFiles("");
+
+    // RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN
+    if (chooseFileRef.current) { 
+      chooseFileRef.current.value = ""; 
+      chooseFileRef.current.type = "text"; 
+      chooseFileRef.current.type = "file"; 
+  } 
   }
 
 

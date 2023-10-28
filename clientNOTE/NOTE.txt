@@ -107,3 +107,5 @@ ________________________________________________________________________________
 41. Work Done on Spinner and Refactored ✔🟢
 
 42. Delete User Photos - api call + Frontend - by axios  ✔🟢
+
+43. RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN ✔🟢

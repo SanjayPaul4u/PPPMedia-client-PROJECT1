@@ -9,8 +9,8 @@ import User from './components/user/User';
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
 import PhotoState from './context/photos/photoState';
 import AuthState from './context/auth/authState';
-import Alert from './components/Alert';
 import AlertState from './context/alert/alertState';
+import Alert from './components/alerts/Alert';
 
 
 

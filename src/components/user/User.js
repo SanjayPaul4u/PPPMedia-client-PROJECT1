@@ -10,6 +10,7 @@ function User() {
   const modalOpenRef = useRef();
   const modalUploadRef = useRef();
   const modalCloseRef = useRef();
+  const resetFileInputRef = useRef()
 
   const [filesArrForModal, setfilesArrForModal] = useState(null);
   const [titleForModal, setTitleForModal] = useState("");
@@ -24,10 +25,19 @@ function User() {
     modalUploadRef.current.click();
     modalCloseRef.current.click();
     setTitleForModal("");
+    setfilesArrForModal(null);
   }
   // ON CLICK CHANGE FUNCTION FOR INPUT
   const onClickChangeTitleForInput = () =>{
     setTitleForModal("");
+    // setfilesArrForModal(null);
+
+    // RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN
+    if (resetFileInputRef.current) { 
+      resetFileInputRef.current.value = ""; 
+      resetFileInputRef.current.type = "text"; 
+      resetFileInputRef.current.type = "file"; 
+  } 
   }
   
   return (
@@ -77,7 +87,7 @@ function User() {
           {/* FIRST ROW - USER PROFILE */}
           <div id='user-profile' className="com-4 col-md-4 col-xl-4">
             <div id='user-profile-fix-div' className='fixed-top'>
-              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef} titleForModal={titleForModal}/>                    
+              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef} titleForModal={titleForModal} resetFileInputRef={resetFileInputRef}/>                    
             </div>
           </div>
 
