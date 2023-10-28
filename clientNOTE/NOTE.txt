@@ -105,3 +105,5 @@ ________________________________________________________________________________
 40. Work on Alert ✔🟢
 
 41. Work Done on Spinner and Refactored ✔🟢
+
+42. Delete User Photos - api call + Frontend - by axios  ✔🟢

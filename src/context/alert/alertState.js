@@ -3,6 +3,10 @@ import AlertContext from "./alertContext";
 
 const AlertState = (props) =>{
 
+    //_____________________________________________________________
+
+    //FOR ALL COMPONENT ALERT
+    //_____________________________________________________________
     // ALERT STATE
     const [alert, setAlert] = useState(null);
 
@@ -17,8 +21,17 @@ const AlertState = (props) =>{
             setAlert(null)
         }, 4000);
     }
+    //_____________________________________________________________
 
-    return <AlertContext.Provider value={{alert, showAlert}}>
+    //FOR USER IMAGES DELETE ALERT
+    //_____________________________________________________________
+    const [deleteStatus, setDeleteStatus] = useState({id: "", isDelete: false});
+
+    const deleteAlertFunc = (id, isDelete)=>{
+        setDeleteStatus({id: id, isDelete: isDelete});
+    }
+
+    return <AlertContext.Provider value={{alert, showAlert, deleteStatus, deleteAlertFunc}}>
         {props.children}
     </AlertContext.Provider>
 }

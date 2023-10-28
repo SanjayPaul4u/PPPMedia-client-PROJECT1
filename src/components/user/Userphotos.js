@@ -1,17 +1,21 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect} from 'react'
 import "../../styleFolder/User.css"
 import PhotoContext from '../../context/photos/photoContext'
 import GetCookie from '../../hooks/getCookie';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner';
-
+import DeleteAlert from '../alerts/DeleteAlert';
+import AlertContext from '../../context/alert/alertContext';
 
 
 
 
 function Userphotos() {
     const p_context = useContext(PhotoContext);
-    const {getUserPhotos, userPhotos, userPhotoLoading} = p_context;
+    const alert_context = useContext(AlertContext)
+
+    const {getUserPhotos, userPhotos, userPhotoLoading} = p_context;    
+    const {deleteStatus, deleteAlertFunc} = alert_context;
 
     // use navigate hook
     const navigate = useNavigate();
@@ -26,6 +30,10 @@ function Userphotos() {
       // eslint-disable-next-line
     }, [])
     
+    // ON CLICK DELETE FUNCTION
+    const onClickdeleteFunc = (id, isDelete) =>{
+        deleteAlertFunc(id, isDelete)
+    }
   return (
     <div id='main-user-photos'>
         {/* header */}
@@ -44,9 +52,15 @@ function Userphotos() {
             {userPhotos.map((element)=>{
 
                 return <div key={element._id} className="col-4 col-md-4 col-xl-4 my-2">
-                {/* card */}
                 <div className="card" style={{border:"none"}}>
+                    {/* card */}
+                    {deleteStatus.id ===element._id && deleteStatus.isDelete===true && <DeleteAlert id ={element._id}/>}
+
                     <div className='card-body' id="user-photos-card-body">
+                        <div className={`d-flex justify-content-end `}>
+                            <i className="fa-solid fa-pen-to-square mb-2 mx-4"></i>
+                            <i className="fa-solid fa-trash-can mb-2" onClick={()=>{onClickdeleteFunc(element._id, true)}}></i>
+                        </div>                    
                         <div id='title-div'>
                             <p className="user-photos-card-title">{element.title}</p>
                         </div>

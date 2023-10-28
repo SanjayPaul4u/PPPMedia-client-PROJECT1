@@ -76,8 +76,25 @@ const PhotoState = (props)=>{
             }
   }
 
+  // DELETE USER PHOTO
+  const deleteUserPhoto = async (id) =>{
+    try {
+      const response = await axios({
+        method: "delete",
+        url: `/api/upload/getuserimages/deleteuserimg/${id}`      
+      })
+      console.log(response.data);
+      getUserPhotos();
+      getAllPhoto();
+      showAlert("success", "Deleted Photo Successfully");
+    } catch (error) {
+      console.log(error.response.data);
+      showAlert("danger", "Failed To Delete Photo");
+    }
+  }
 
-    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading}}>
+
+    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading, deleteUserPhoto}}>
         {props.children}
     </PhotoContext.Provider>
 }
