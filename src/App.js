@@ -11,10 +11,8 @@ import PhotoState from './context/photos/photoState';
 import AuthState from './context/auth/authState';
 import AlertState from './context/alert/alertState';
 import Alert from './components/alerts/Alert';
-
-
-
-
+import UpdateModal from './components/user/UpdateModal';
+import FunctionState from './context/functions/functionState';
 
 
 
@@ -35,7 +33,9 @@ function App() {
     <AlertState>
     <AuthState>
     <PhotoState>
+    <FunctionState>
     <BrowserRouter>
+      <UpdateModal/>
       <Navbar/>
       <Alert/>
         <Routes>
@@ -51,6 +51,7 @@ function App() {
         {/* <Footer/> */}
 
     </BrowserRouter>
+    </FunctionState>
     </PhotoState>
     </AuthState>
     </AlertState>

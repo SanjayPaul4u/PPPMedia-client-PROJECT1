@@ -94,7 +94,29 @@ const PhotoState = (props)=>{
   }
 
 
-    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading, deleteUserPhoto}}>
+  // UPDATE USER PHOTO'S TITLE
+  const updateUserPhotoTitle = async (id, title) =>{
+    try {
+      const response = await axios({
+        method: "patch",
+        url: `/api/upload/getuserimages/updateuserimg/${id}`,
+        data : {title: title},
+        headers:{
+          "Content-Type":"application/json"
+        }      
+      })
+      console.log(response.data);
+      getUserPhotos();
+      getAllPhoto();
+      showAlert("success", "Updated title Successfully");
+    } catch (error) {
+      console.log(error.response.data);
+      showAlert("danger", "Failed To Update Title");
+    }
+  }
+
+
+    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading, deleteUserPhoto, updateUserPhotoTitle}}>
         {props.children}
     </PhotoContext.Provider>
 }

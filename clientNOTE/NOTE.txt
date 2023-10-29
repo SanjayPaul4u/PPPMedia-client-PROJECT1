@@ -109,3 +109,5 @@ ________________________________________________________________________________
 42. Delete User Photos - api call + Frontend - by axios  ✔🟢
 
 43. RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN ✔🟢
+
+44. Delete User Photos - api call + Frontend - by axios  ✔🟢

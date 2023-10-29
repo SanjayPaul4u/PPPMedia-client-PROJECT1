@@ -6,13 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner';
 import DeleteAlert from '../alerts/DeleteAlert';
 import AlertContext from '../../context/alert/alertContext';
-
+import FunctionContext from '../../context/functions/functionContext';
 
 
 
 function Userphotos() {
     const p_context = useContext(PhotoContext);
-    const alert_context = useContext(AlertContext)
+    const alert_context = useContext(AlertContext);
+    const function_context = useContext(FunctionContext);
+    const {onClickOpenUpdateModalFunc} = function_context;
 
     const {getUserPhotos, userPhotos, userPhotoLoading} = p_context;    
     const {deleteStatus, deleteAlertFunc} = alert_context;
@@ -37,11 +39,12 @@ function Userphotos() {
   return (
     <div id='main-user-photos'>
         {/* header */}
+        {/* <UpdateModal/> */}
         <div>
             <h2 id='main-user-photos-heading'>Your All Photos</h2>
         </div>
 
-        <div className="row">    
+        <div className="row">   
 
             {/* SPINNER */}
             {userPhotoLoading && <div className='mt-4 text-center p-2' style={{backgroundColor: 'white', borderRadius:"0.3rem"}}>
@@ -58,7 +61,7 @@ function Userphotos() {
 
                     <div className='card-body' id="user-photos-card-body">
                         <div className={`d-flex justify-content-end `}>
-                            <i className="fa-solid fa-pen-to-square mb-2 mx-4"></i>
+                            <i className="fa-solid fa-pen-to-square mb-2 mx-4" onClick={()=>{onClickOpenUpdateModalFunc(element._id, element.title)}}></i>
                             <i className="fa-solid fa-trash-can mb-2" onClick={()=>{onClickdeleteFunc(element._id, true)}}></i>
                         </div>                    
                         <div id='title-div'>
