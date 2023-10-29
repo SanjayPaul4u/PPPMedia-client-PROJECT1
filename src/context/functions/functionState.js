@@ -37,7 +37,7 @@ const FunctionState = (props)=>{
         // console.log("updated");
     }
     //______________________________________________________________
-    // UPDATE MODAL - LOGICS
+    // 
     // ______________________________________________________________
 
     return <FunctionContext.Provider value = {{clickUpdateModalRef, onClickOpenUpdateModalFunc, modalTitle, modalInputOnchangeFunc, onclickUpdateFunc, updateModalCloseRef } }>

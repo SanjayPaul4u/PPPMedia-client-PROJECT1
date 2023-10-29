@@ -1,19 +1,25 @@
 import "../../styleFolder/Home.css"
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
+import AuthContext from "../../context/auth/authContext";
+import dpDefaultImg from '../images/default.png'
+
 
 function Usersidebar() {
+  const auth_context = useContext(AuthContext);
+  const {authUserData} = auth_context;
   return (
-    <div id='main-user-sidebar-div'>
+  <>{
+    authUserData.name!==undefined && <div id='main-user-sidebar-div'>
         <Link to="/user">
-            <img id='side-bar-dp' src="https://cdn.pixabay.com/photo/2023/09/25/20/11/boat-8275962_1280.jpg" alt="dpError" />
+            <img id='side-bar-dp' src={`${authUserData.dpFiles.length===0?dpDefaultImg:"setimgLinkhere"}`} alt="dpError" />
         </Link>
 
         <Link to="/user" style={{textDecoration: "none"}}>
-            <h3 id='sidebar-user-name'>sanjay paul</h3>
+            <h3 id='sidebar-user-name'>{authUserData.name}</h3>
         </Link>
         <Link to="/user" style={{textDecoration: "none"}}>
-            <p id="sidebar-user-about">this is about section || set this section</p>
+            <p id="sidebar-user-about">{authUserData.about}</p>
         </Link>
         
         <hr />
@@ -22,6 +28,8 @@ function Usersidebar() {
         <Link to="/user" className="btn sidebar-buttons">Customize Your Profile</Link>
 
     </div>
+    }
+  </>
   )
 }
 

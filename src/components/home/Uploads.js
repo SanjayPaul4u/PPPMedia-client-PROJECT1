@@ -29,7 +29,6 @@ function Uploads() {
     // eslint-disable-next-line
   }, [])
   
-  console.log(allUserArr);
   return (
     <div>
         {/* PHOTO UPLOAD CARD */}

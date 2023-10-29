@@ -113,3 +113,5 @@ ________________________________________________________________________________
 44. Update User Photos's title - api call + Frontend - by axios  ✔🟢
 
 45. get all user - refactored  ✔🟢
+
+46: refactored ✔🟢

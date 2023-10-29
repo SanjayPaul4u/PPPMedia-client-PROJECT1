@@ -20,7 +20,7 @@ function DeleteAlert(props) {
     <div id='deleteAlert' className="alert-danger p-1 d-flex justify-content-between" role="alert" >
         <h6>Alert: </h6>
         <div>
-            <button className='btn btn-sm btn-primary mx-2' onClick={()=>{deleteAlertFunc(props.id, false)}}>Cencen</button>
+            <button className='btn btn-sm btn-primary mx-2' onClick={()=>{deleteAlertFunc(props.id, false)}}>Cencel</button>
             <button className='btn btn-sm btn-danger' onClick={mainDeleteFunc}>Delete</button>
         </div>        
     </div>

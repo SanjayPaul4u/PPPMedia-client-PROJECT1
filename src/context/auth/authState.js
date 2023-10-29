@@ -20,6 +20,7 @@ const AuthState = (props)=>{
     const [userEmail, setUserEmail] = useState("");
     const [emailLoading, setEmailLoading] = useState(false);
     const [allUserArr, setAllUserArr] = useState([]);
+    const [authUserData, setAuthUserData] = useState({})
 
     // GETUSER API CALL - BY AXIOS 
     const getUser = async()=>{
@@ -31,8 +32,8 @@ const AuthState = (props)=>{
             })
             // console.log(response.data);
             setEmailLoading(false);
-            setUserEmail(response.data.userData.email); 
-
+            setUserEmail(response.data.userData.email);
+            setAuthUserData(response.data.userData) ;
         } catch (error) {
             console.log(error.response.data);
         }
@@ -120,7 +121,7 @@ const AuthState = (props)=>{
     }
 
     
-    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut, emailLoading, getAllUser, allUserArr}}>
+    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut, emailLoading, getAllUser, allUserArr, authUserData}}>
         {props.children}
     </AuthContext.Provider>
 }
