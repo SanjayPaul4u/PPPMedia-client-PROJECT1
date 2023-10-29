@@ -31,8 +31,8 @@ function App() {
   return (
     <>
     <AlertState>
-    <AuthState>
     <PhotoState>
+    <AuthState>
     <FunctionState>
     <BrowserRouter>
       <UpdateModal/>
@@ -52,8 +52,8 @@ function App() {
 
     </BrowserRouter>
     </FunctionState>
-    </PhotoState>
     </AuthState>
+    </PhotoState>
     </AlertState>
     </>
   );

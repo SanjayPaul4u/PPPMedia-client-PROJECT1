@@ -4,9 +4,14 @@ import React, { useContext, useState } from "react";
 import RemoveCookie from "../../hooks/removeCookie";
 import SetCookie from "../../hooks/setCookie";
 import AlertContext from "../alert/alertContext";
+// import PhotoContext from "../photos/photoContext";
+
 
 
 const AuthState = (props)=>{
+    // const photo_context = useContext(PhotoContext);
+    // const {} = photo_context;
+    
     const alert_context = useContext(AlertContext);
     const {showAlert} = alert_context;
 
@@ -14,6 +19,7 @@ const AuthState = (props)=>{
     // USER EMAIL STATE CREATE
     const [userEmail, setUserEmail] = useState("");
     const [emailLoading, setEmailLoading] = useState(false);
+    const [allUserArr, setAllUserArr] = useState([]);
 
     // GETUSER API CALL - BY AXIOS 
     const getUser = async()=>{
@@ -26,6 +32,19 @@ const AuthState = (props)=>{
             // console.log(response.data);
             setEmailLoading(false);
             setUserEmail(response.data.userData.email); 
+
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+    // GETUSER API CALL - BY AXIOS 
+    const getAllUser = async()=>{
+        try {
+            const response = await axios({
+                method: "get",
+                url: "/api/auth/getalluser"
+            })
+            setAllUserArr(response.data.allUserData);
 
         } catch (error) {
             console.log(error.response.data);
@@ -73,6 +92,7 @@ const AuthState = (props)=>{
             RemoveCookie('auth-token'); // first remove cookie
             SetCookie('auth-token', response.data.token) // then set cookie                       
             getUser();
+            getAllUser();
             showAlert("success", "Loged In Successfully");
             return response.data;
         } catch (error) {
@@ -100,7 +120,7 @@ const AuthState = (props)=>{
     }
 
     
-    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut, emailLoading}}>
+    return <AuthContext.Provider value={{SignUp, LogIn, getUser, userEmail, setUserEmail, LogOut, emailLoading, getAllUser, allUserArr}}>
         {props.children}
     </AuthContext.Provider>
 }

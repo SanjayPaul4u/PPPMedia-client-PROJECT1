@@ -4,13 +4,17 @@ import {Link, useNavigate} from 'react-router-dom'
 import PhotoContext from '../../context/photos/photoContext'
 import GetCookie from '../../hooks/getCookie'
 import Spinner from '../Spinner'
+import AuthContext from '../../context/auth/authContext'
+import defaultDpImg from "../images/default.png"
+
 
 
 
 function Uploads() {
   const p_context = useContext(PhotoContext);
+  const auth_context = useContext(AuthContext);
   const {getAllPhoto, allPhotos, allPhotoLoading} = p_context;
-
+  const {getAllUser, allUserArr} = auth_context;
   // use navigate hook
   const navigate = useNavigate();
   
@@ -21,10 +25,11 @@ function Uploads() {
     if(!GetCookie("auth-token")){
       navigate("/login");
     }
-    
+    getAllUser();
     // eslint-disable-next-line
   }, [])
-
+  
+  console.log(allUserArr);
   return (
     <div>
         {/* PHOTO UPLOAD CARD */}
@@ -47,13 +52,22 @@ function Uploads() {
           <div className="card-body">
 
             <div className='d-flex justify-content-between'>
-              <div className='d-flex' id='dp-div'>
-                <img src="https://cdn.pixabay.com/photo/2023/10/12/14/41/town-8310950_1280.jpg" className="" id='dp-img' alt="err"/>
-                <div>
-                  <h4 id='dp-name'>Sanjay Pual</h4>
-                  <p id='db-about'>Set you about section</p>
-                </div>
-              </div>
+              
+                {/* FETCH DP, NAME, ABOUT - FROM "allUserArr" */}
+                {allUserArr.map((e)=>{
+                  if(element.user === e._id){
+                    return <div key={e._id} className='d-flex' id='dp-div'>
+                              <img src={`${e.dpFiles.length===0?defaultDpImg:"setfilelink-todo"}`} className="" id='dp-img' alt="err-TODO-setLINK"/>
+                              <div>
+                                  <h4 id='dp-name'>{e.name}</h4>
+                                  <p id='db-about'>{e.about}</p>
+                              </div>
+                          </div>
+                  }else{
+                    return "";
+                  }
+                })}
+              
               <i id='follow-icon' className="fa-solid fa-plus"></i>
             </div>  
             <hr id='dp-line'/>
