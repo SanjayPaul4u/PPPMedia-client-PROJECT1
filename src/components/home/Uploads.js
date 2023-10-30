@@ -56,7 +56,7 @@ function Uploads() {
                 {allUserArr.map((e)=>{
                   if(element.user === e._id){
                     return <div key={e._id} className='d-flex' id='dp-div'>
-                              <img src={`${e.dpFiles.length===0?defaultDpImg:"setfilelink-todo"}`} className="" id='dp-img' alt="err-TODO-setLINK"/>
+                              <img src={`${e.dpFiles.length===0?defaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}`}`} className="" id='dp-img' alt="err-TODO-setLINK"/>
                               <div>
                                   <h4 id='dp-name'>{e.name}</h4>
                                   <p id='db-about'>{e.about}</p>

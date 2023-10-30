@@ -59,7 +59,7 @@ const PhotoState = (props)=>{
 
     // UPLOAD USER PHOTO
     const uploadPhoto = async(data)=>{
-      // console.log(...data);
+      console.log(...data);
           try {
               const response = await axios({
                 method: "post",
@@ -116,7 +116,8 @@ const PhotoState = (props)=>{
   }
 
 
-    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading, deleteUserPhoto, updateUserPhotoTitle}}>
+
+    return <PhotoContext.Provider value={{uploadPhoto, getAllPhoto, allPhotos, getUserPhotos, userPhotos, allPhotoLoading, userPhotoLoading, deleteUserPhoto, updateUserPhotoTitle,}}>
         {props.children}
     </PhotoContext.Provider>
 }

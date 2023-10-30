@@ -12,7 +12,7 @@ function Usersidebar() {
   <>{
     authUserData.name!==undefined && <div id='main-user-sidebar-div'>
         <Link to="/user">
-            <img id='side-bar-dp' src={`${authUserData.dpFiles.length===0?dpDefaultImg:"setimgLinkhere"}`} alt="dpError" />
+            <img id='side-bar-dp' src={`${authUserData.dpFiles.length===0?dpDefaultImg:`data:${authUserData.dpFiles[0].fileType};base64,${authUserData.dpFiles[0].imagebase64}`}`} alt="dpError" />
         </Link>
 
         <Link to="/user" style={{textDecoration: "none"}}>

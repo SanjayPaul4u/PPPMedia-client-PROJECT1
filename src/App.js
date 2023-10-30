@@ -13,6 +13,10 @@ import AlertState from './context/alert/alertState';
 import Alert from './components/alerts/Alert';
 import UpdateModal from './components/user/UpdateModal';
 import FunctionState from './context/functions/functionState';
+import DpUpdateModal from './components/user/DpUpdateModal';
+import OtherState from './context/others_api_call/otherState';
+
+
 
 
 
@@ -33,9 +37,11 @@ function App() {
     <AlertState>
     <PhotoState>
     <AuthState>
+    <OtherState>
     <FunctionState>
     <BrowserRouter>
       <UpdateModal/>
+      <DpUpdateModal/>
       <Navbar/>
       <Alert/>
         <Routes>
@@ -52,6 +58,7 @@ function App() {
 
     </BrowserRouter>
     </FunctionState>
+    </OtherState>
     </AuthState>
     </PhotoState>
     </AlertState>
