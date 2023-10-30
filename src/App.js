@@ -15,9 +15,7 @@ import UpdateModal from './components/user/UpdateModal';
 import FunctionState from './context/functions/functionState';
 import DpUpdateModal from './components/user/DpUpdateModal';
 import OtherState from './context/others_api_call/otherState';
-
-
-
+import NameAndAboutUpdateModal from './components/user/NameAndAboutUpdateModal';
 
 
 /*
@@ -42,6 +40,7 @@ function App() {
     <BrowserRouter>
       <UpdateModal/>
       <DpUpdateModal/>
+      <NameAndAboutUpdateModal/>
       <Navbar/>
       <Alert/>
         <Routes>

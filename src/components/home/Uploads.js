@@ -14,18 +14,19 @@ function Uploads() {
   const p_context = useContext(PhotoContext);
   const auth_context = useContext(AuthContext);
   const {getAllPhoto, allPhotos, allPhotoLoading} = p_context;
-  const {getAllUser, allUserArr} = auth_context;
+  const {getAllUser, allUserArr, getUser} = auth_context;
   // use navigate hook
   const navigate = useNavigate();
   
   useEffect(() => {
     if(GetCookie("auth-token") && allPhotos.length===0){
       getAllPhoto();
+      getAllUser();
+      getUser();
     }
     if(!GetCookie("auth-token")){
       navigate("/login");
     }
-    getAllUser();
     // eslint-disable-next-line
   }, [])
   
@@ -56,7 +57,7 @@ function Uploads() {
                 {allUserArr.map((e)=>{
                   if(element.user === e._id){
                     return <div key={e._id} className='d-flex' id='dp-div'>
-                              <img src={`${e.dpFiles.length===0?defaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}`}`} className="" id='dp-img' alt="err-TODO-setLINK"/>
+                              <img src={`${e.dpFiles.length===0?defaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}`}`} className="" id='dp-img' alt="err"/>
                               <div>
                                   <h4 id='dp-name'>{e.name}</h4>
                                   <p id='db-about'>{e.about}</p>

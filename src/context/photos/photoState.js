@@ -34,7 +34,7 @@ const PhotoState = (props)=>{
         return response.data;
         
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error);
       }
     }
 
@@ -52,7 +52,7 @@ const PhotoState = (props)=>{
         setUserPhotos(user_data)
         return response.data
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error);
       }
     }
     
@@ -71,7 +71,7 @@ const PhotoState = (props)=>{
               getAllPhoto();
               showAlert("success", "Uloaded Photo Successfully");
             } catch (error) {
-              console.log(error.response.data);
+              console.log(error);
               showAlert("danger", "Failed To Upload Photo");
             }
   }
@@ -88,7 +88,7 @@ const PhotoState = (props)=>{
       getAllPhoto();
       showAlert("success", "Deleted Photo Successfully");
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
       showAlert("danger", "Failed To Delete Photo");
     }
   }
@@ -110,7 +110,7 @@ const PhotoState = (props)=>{
       getAllPhoto();
       showAlert("success", "Updated title Successfully");
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
       showAlert("danger", "Failed To Update Title");
     }
   }

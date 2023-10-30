@@ -8,7 +8,7 @@ const FunctionState = (props)=>{
     const photo_context = useContext(PhotoContext);
     const {updateUserPhotoTitle} = photo_context;
     const other_context = useContext(OtherContext);
-    const {updateDp} = other_context;
+    const {updateDp, updateNameAbout} = other_context;
     //______________________________________________________________
     // UPDATE title MODAL - LOGICS
     // ______________________________________________________________
@@ -40,8 +40,7 @@ const FunctionState = (props)=>{
     }
     //______________________________________________________________
     // UPDATE Dp MODAL- LOGICS (USER-> USER PROFILE)
-    // ______________________________________________________________
-    
+    // ______________________________________________________________    
 
     const dpUpdateModalRef = useRef();
     const fileInputRef = useRef();
@@ -90,6 +89,32 @@ const FunctionState = (props)=>{
         dpModalCloseRef.current.click();
     }
     
+    //______________________________________________________________
+    // UPDATE Name And About  MODAL- LOGICS (USER-> USER PROFILE)
+    // _____________________________________________________________
+    const Name_n_AboutUpdateModalRef = useRef();
+    const Name_n_AboutCloseModalRef = useRef();
+    const [userData123, setUserData123] = useState({name: "", about: ""});
+
+    // on click pen icon - function for open modal
+    const onCLickPenIcon = (currentName, currentAbout) =>{
+        Name_n_AboutUpdateModalRef.current.click();
+        setUserData123({
+            name: currentName,
+            about: currentAbout
+        })
+    }
+    // NameAboutInputOnchangeFunc
+    const NameAboutInputOnchangeFunc = (event)=>{
+        // console.log(event.target.value);
+        setUserData123({...userData123, [event.target.name] : event.target.value})
+    }
+
+    // MAIN UPDATE FUNCTION
+    const mainUpdateFunc = ()=>{
+        updateNameAbout(userData123);
+        Name_n_AboutCloseModalRef.current.click();
+    }
 
     return <FunctionContext.Provider value = {{
         clickUpdateModalRef,
@@ -99,6 +124,7 @@ const FunctionState = (props)=>{
         onclickUpdateFunc,
         updateModalCloseRef,
 
+        
         fileInputRef,
         onCLickImage,
         dpUpdateModalRef,
@@ -106,7 +132,14 @@ const FunctionState = (props)=>{
         blobUrl,
         modalCancelNCloseFunc,
         mainDpUpdateFunc,
-        dpModalCloseRef
+        dpModalCloseRef,
+
+        Name_n_AboutUpdateModalRef,
+        onCLickPenIcon,
+        userData123,
+        NameAboutInputOnchangeFunc,
+        mainUpdateFunc,
+        Name_n_AboutCloseModalRef
          } }>
             {props.children}
     </FunctionContext.Provider>

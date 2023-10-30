@@ -35,7 +35,7 @@ const AuthState = (props)=>{
             setUserEmail(response.data.userData.email);
             setAuthUserData(response.data.userData) ;
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error);
         }
     }
     // GETUSER API CALL - BY AXIOS 
@@ -48,7 +48,7 @@ const AuthState = (props)=>{
             setAllUserArr(response.data.allUserData);
 
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error);
         }
     }
 
@@ -71,9 +71,9 @@ const AuthState = (props)=>{
             showAlert("success", "Account Created Successfully");
             return response.data;         
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error);
             showAlert("danger", "Account Creation Failed due to Invalid Credential");
-            return error.response.data;
+            return error;
         }
         
     }
@@ -97,9 +97,9 @@ const AuthState = (props)=>{
             showAlert("success", "Loged In Successfully");
             return response.data;
         } catch (error) {
-            console.log(error.response.data);
+            console.log(error);
             showAlert("danger", "Login Failed due to Invalid Credential");
-            return error.response.data;
+            return error;
         
         }
     }
@@ -114,8 +114,8 @@ const AuthState = (props)=>{
             showAlert("success", "LogOut Successfully");
             return response.data;
         } catch (error) {
-            console.log(error.response.data);
-            return error.response.data;
+            console.log(error);
+            return error;
         
         }
     }
