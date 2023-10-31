@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AuthContext from '../../context/auth/authContext'
+import DefaultDpImg from '../images/default.png'
+
 
 function Peoples() {
+    const auth_context = useContext(AuthContext);
+    const {allUserArr} = auth_context;
   return (
     <>
     {/* main-peoples-div */}
@@ -12,53 +17,27 @@ function Peoples() {
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
 
-                    
+                    {allUserArr.length!==0 &&  allUserArr.map((e, index)=>{
 
-                    <div className="carousel-item active" data-bs-interval="2000">
-                        <div className='d-flex justify-content-between align-items-center peoples-carousel-div'>
-                            <div className='d-flex'>
-                                <img src="https://cdn.pixabay.com/photo/2023/09/25/20/11/boat-8275962_1280.jpg" className="d-block peoples-carousel-img" alt="imgError"/>
-                                <div id='carousel-user'>
-                                    <h4>sanjay paul</h4>
-                                    <p>PPP Media</p>
+                         return  <div key={e._id} className={`carousel-item ${index===0?"active":""}`} data-bs-interval="2000">
+                                    <div className='d-flex justify-content-between align-items-center peoples-carousel-div'>
+                                        <div className='d-flex'>
+                                            <img src={`${e.dpFiles.length===0?DefaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}` }`} className="d-block peoples-carousel-img" alt="imgError"/>
+                                            <div id='carousel-user'>
+                                                <h4>{e.name}</h4>
+                                                <p>{e.about}</p>
+                                            </div>
+                                        </div>
+                                        <div className='text-primary'>
+                                            <i className="fa-solid fa-plus pe-1 text-primary"><br /></i>
+                                            Follow
+                                        </div>                            
+                                    </div>              
                                 </div>
-                            </div>
-                            <div className='text-primary'>
-                                <i className="fa-solid fa-plus pe-1 text-primary"><br /></i>
-                                Follow
-                            </div>                            
-                        </div>              
-                    </div>
-                    <div className="carousel-item" data-bs-interval="2000">
-                        <div className='d-flex justify-content-between align-items-center peoples-carousel-div'>
-                            <div className='d-flex'>
-                                <img src="https://cdn.pixabay.com/photo/2023/09/25/20/11/boat-8275962_1280.jpg" className="d-block peoples-carousel-img" alt="imgError"/>
-                                <div id='carousel-user'>
-                                    <h4>Raju SuTRAdhar</h4>
-                                    <p>kjasdflkasd asdfa asdf a</p>
-                                </div>
-                            </div>
-                            <div className='text-primary'>
-                                <i className="fa-solid fa-plus pe-1 text-primary"><br /></i>
-                                Follow
-                            </div>                            
-                        </div>              
-                    </div>
-                    <div className="carousel-item" data-bs-interval="2000">
-                        <div className='d-flex justify-content-between align-items-center peoples-carousel-div'>
-                            <div className='d-flex '>
-                                <img src="https://cdn.pixabay.com/photo/2023/09/25/20/11/boat-8275962_1280.jpg" className="d-block peoples-carousel-img" alt="imgError"/>
-                                <div id='carousel-user'>
-                                    <h4>Kali</h4>
-                                    <p>asdfa sdfasdf</p>
-                                </div>
-                            </div>
-                            <div className='text-primary'>
-                                <i className="fa-solid fa-plus pe-1 text-primary"><br /></i>
-                                Follow
-                            </div>                            
-                        </div>              
-                    </div>
+
+                    })}
+
+                    
 
                     
 

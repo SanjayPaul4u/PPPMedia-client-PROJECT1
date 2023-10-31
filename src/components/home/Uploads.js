@@ -23,6 +23,7 @@ function Uploads() {
       getAllPhoto();
       getAllUser();
       getUser();
+      
     }
     if(!GetCookie("auth-token")){
       navigate("/login");

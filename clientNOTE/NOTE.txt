@@ -120,3 +120,5 @@ ________________________________________________________________________________
 47: Dp Update - api call + Frontend - by axios  ✔🟢
 
 48: Name and About Update - api call + Frontend - by axios  ✔🟢
+
+49: Peoples Component WOrk Done ✔🟢
