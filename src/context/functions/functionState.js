@@ -127,6 +127,15 @@ const FunctionState = (props)=>{
         likePhoto(id);
     }
 
+    //______________________________________________________________
+    // Peoples of Like  - Collaps - LOGICS (Like-> PeopleofLike.js)
+    // _____________________________________________________________
+    const Open_n_Close_LikesCollapsRef = useRef();
+
+    const onclickLikeNumber = () =>{
+        Open_n_Close_LikesCollapsRef.current.click();
+    }
+
 
     return <FunctionContext.Provider value = {{
         clickUpdateModalRef,
@@ -154,7 +163,10 @@ const FunctionState = (props)=>{
         Name_n_AboutCloseModalRef,
 
 
-        mainLikeFunc
+        mainLikeFunc,
+
+        Open_n_Close_LikesCollapsRef,
+        onclickLikeNumber
          } }>
             {props.children}
     </FunctionContext.Provider>

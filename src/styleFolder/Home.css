@@ -33,7 +33,7 @@
     height: 90%;;
     width: 27.4rem;
     top: 4rem;
-    left: 3.3rem;
+    left: 8.3rem;
 }
 #sidebar2{
     height: 35rem;
@@ -41,7 +41,7 @@
     background-color: white;
     border-radius: 0.3rem;
     top: 4rem;
-    left: 72rem;
+    left: 77rem;
 }
 
 /* UPLOAD COMPONENT IN HOME -----------------------------------*/
@@ -187,4 +187,20 @@
     margin-top: -0.7rem;
     font-size: 0.8rem;
     color: rgb(130, 130, 130);
+}
+
+/* LIKES ---------------------------------------------------- */    
+.fa-thumbs-up{
+    font-size: 2rem;
+    cursor: pointer;
+}
+#totalLike{
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+#solid-liked-icon{
+    color: #3ecdb4b8;
+    font-size: 1.7rem;
+    margin-top: 0.13rem;
+    margin-left: -1.87rem;
 }

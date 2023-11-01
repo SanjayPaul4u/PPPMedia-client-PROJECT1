@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import OtherContext from "./otherContext";
 import axios from 'axios';
 import AuthContext from "../auth/authContext";
@@ -11,6 +11,7 @@ const OtherState = (props) =>{
     const {getAllPhoto} = photo_context;
     const auth_context = useContext(AuthContext);
     const {getUser, getAllUser} = auth_context;
+
 
     // UPDATE DP FUNCTION -----------
     const updateDp = async(data) => {

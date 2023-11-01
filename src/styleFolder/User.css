@@ -25,8 +25,8 @@
 #user-profile-fix-div{
     /* background-color: red; */
     top: 4rem;
-    left: 3.7rem;
-    width: 29.5%;
+    left: 8.7rem;
+    width: 27.5%;
     height: 90%;
     border-radius: 0.3rem;
 }
@@ -36,6 +36,7 @@
 #main-user-photos{
     /* background-color: red;
     margin: 0; */
+    width: 101.5%;
 }
 #main-user-photos-heading{
     background-color: white;
