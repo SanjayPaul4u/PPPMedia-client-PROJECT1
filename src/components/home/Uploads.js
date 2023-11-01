@@ -6,7 +6,7 @@ import GetCookie from '../../hooks/getCookie'
 import Spinner from '../Spinner'
 import AuthContext from '../../context/auth/authContext'
 import defaultDpImg from "../images/default.png"
-
+import Likes from './Likes'
 
 
 
@@ -79,6 +79,7 @@ function Uploads() {
               return <img key={element.filePath} src={`data:${element.fileType};base64,${element.imagebase64}`} className="card-img-top" alt="err"/> 
             })}
 
+          <Likes element={element}/>
           </div>            
         </div> 
         })}

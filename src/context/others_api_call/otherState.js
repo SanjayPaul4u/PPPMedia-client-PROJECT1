@@ -2,9 +2,13 @@ import React, { useContext } from "react";
 import OtherContext from "./otherContext";
 import axios from 'axios';
 import AuthContext from "../auth/authContext";
+import PhotoContext from "../photos/photoContext";
+
 
 
 const OtherState = (props) =>{
+    const photo_context = useContext(PhotoContext);
+    const {getAllPhoto} = photo_context;
     const auth_context = useContext(AuthContext);
     const {getUser, getAllUser} = auth_context;
 
@@ -45,8 +49,22 @@ const OtherState = (props) =>{
         }
     }
 
+    //// Like -Api call-  FUNCTION -----------
+    const likePhoto = async(id) => {
+        // console.log(...data);
+        try {
+            const response = await axios({
+                method: "patch",
+                url: `/api/other/images/likeimg/${id}`,
+            })
+            console.log(response.data);
+            getAllPhoto();
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-    return <OtherContext.Provider value={{updateDp, updateNameAbout}}>
+    return <OtherContext.Provider value={{updateDp, updateNameAbout,likePhoto}}>
         {props.children}
     </OtherContext.Provider>
 }

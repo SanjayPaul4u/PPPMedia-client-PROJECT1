@@ -8,7 +8,7 @@ const FunctionState = (props)=>{
     const photo_context = useContext(PhotoContext);
     const {updateUserPhotoTitle} = photo_context;
     const other_context = useContext(OtherContext);
-    const {updateDp, updateNameAbout} = other_context;
+    const {updateDp, updateNameAbout, likePhoto} = other_context;
     //______________________________________________________________
     // UPDATE title MODAL - LOGICS
     // ______________________________________________________________
@@ -116,6 +116,18 @@ const FunctionState = (props)=>{
         Name_n_AboutCloseModalRef.current.click();
     }
 
+
+    //______________________________________________________________
+    // Like Photos - LOGICS (HOme-> likes.js)
+    // ______________________________________________________________
+
+    // main like function
+    const mainLikeFunc = (id) =>{
+        console.log(id);
+        likePhoto(id);
+    }
+
+
     return <FunctionContext.Provider value = {{
         clickUpdateModalRef,
         onClickOpenUpdateModalFunc,
@@ -139,7 +151,10 @@ const FunctionState = (props)=>{
         userData123,
         NameAboutInputOnchangeFunc,
         mainUpdateFunc,
-        Name_n_AboutCloseModalRef
+        Name_n_AboutCloseModalRef,
+
+
+        mainLikeFunc
          } }>
             {props.children}
     </FunctionContext.Provider>
