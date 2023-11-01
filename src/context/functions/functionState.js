@@ -130,10 +130,12 @@ const FunctionState = (props)=>{
     //______________________________________________________________
     // Peoples of Like  - Collaps - LOGICS (Like-> PeopleofLike.js)
     // _____________________________________________________________
-    const Open_n_Close_LikesCollapsRef = useRef();
+    const OpenLikesModalRef = useRef();
+    const [LikesArr, setLikesArr] = useState([])
 
-    const onclickLikeNumber = () =>{
-        Open_n_Close_LikesCollapsRef.current.click();
+    const onclickLikeNumber = (likesArr) =>{
+        OpenLikesModalRef.current.click();
+        setLikesArr(likesArr);
     }
 
 
@@ -165,8 +167,9 @@ const FunctionState = (props)=>{
 
         mainLikeFunc,
 
-        Open_n_Close_LikesCollapsRef,
-        onclickLikeNumber
+        OpenLikesModalRef,
+        onclickLikeNumber,
+        LikesArr
          } }>
             {props.children}
     </FunctionContext.Provider>

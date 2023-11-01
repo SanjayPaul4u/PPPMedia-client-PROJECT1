@@ -16,6 +16,7 @@ import FunctionState from './context/functions/functionState';
 import DpUpdateModal from './components/user/DpUpdateModal';
 import OtherState from './context/others_api_call/otherState';
 import NameAndAboutUpdateModal from './components/user/NameAndAboutUpdateModal';
+import PeoplesofLikeModal from './components/home/PeoplesofLikeModal';
 
 
 /*
@@ -40,6 +41,7 @@ function App() {
     <BrowserRouter>
       <UpdateModal/>
       <DpUpdateModal/>
+      <PeoplesofLikeModal/>
       <NameAndAboutUpdateModal/>
       <Navbar/>
       <Alert/>

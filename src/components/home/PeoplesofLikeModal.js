@@ -1,0 +1,37 @@
+import React, { useContext } from 'react'
+import FunctionContext from '../../context/functions/functionContext'
+
+function PeoplesofLikeModal() {
+    const function_context = useContext(FunctionContext);
+    const {OpenLikesModalRef, LikesArr} = function_context;
+  return (
+    <div>        
+        {/* <!-- Button trigger modal --> */}
+        <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" ref={OpenLikesModalRef}>
+        Launch demo modal
+        </button>
+
+        {/* <!-- Modal --> */}
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+            <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">People, Who had Liked This Photo</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+                {LikesArr.length!==0 && LikesArr.map((e)=>{
+                    return <p key={e}>{e}</p>
+                })}
+            </div>
+            <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  )
+}
+
+export default PeoplesofLikeModal

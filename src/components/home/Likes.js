@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import FunctionContext from '../../context/functions/functionContext';
 import AuthContext from '../../context/auth/authContext';
-import PeoplesofLike from './PeoplesofLike';
+
 
 
 function Likes(props) {
@@ -28,13 +28,13 @@ function Likes(props) {
                     return "";
                 }
             })}
-                <a id='totalLike' href="###" className='mx-2'onClick={onclickLikeNumber}>
+                <a id='totalLike' href="###" className='mx-2'onClick={()=>{onclickLikeNumber(props.element.likes)}}>
                     {props.element.likes.length}
                 </a>
             </div>
             <h5>Comments</h5>
-        </div>
-        <PeoplesofLike/>        
+            
+        </div>      
         </>
       )
 }
