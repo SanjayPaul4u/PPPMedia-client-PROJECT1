@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext, useState} from "react";
 import OtherContext from "./otherContext";
 import axios from 'axios';
 import AuthContext from "../auth/authContext";
@@ -65,7 +65,36 @@ const OtherState = (props) =>{
         }
     }
 
-    return <OtherContext.Provider value={{updateDp, updateNameAbout,likePhoto}}>
+
+    const getUserByEmail = async(email)=>{
+        try {
+            const response = await axios({
+                method: "get",
+                url: `/api/other/images/getuserbyemail/${email}`,
+            })
+            return response.data.userData;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+     //// getPhotosById -Api call-  FUNCTION -----------
+     const [anyUserAllPhotos, setAnyUserAllPhotos] = useState([])
+
+    const getPhotosById = async(id)=>{
+        try {
+            const response = await axios({
+                method: "get",
+                url: `/api/other/images/getphotosbyid/${id}`,
+            })
+            setAnyUserAllPhotos(response.data.userPhotos);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    return <OtherContext.Provider value={{updateDp, updateNameAbout,likePhoto, getUserByEmail, getPhotosById, anyUserAllPhotos}}>
         {props.children}
     </OtherContext.Provider>
 }

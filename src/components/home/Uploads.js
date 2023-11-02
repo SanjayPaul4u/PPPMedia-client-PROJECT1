@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect} from 'react'
 import  '../../styleFolder/Home.css'
 import {Link, useNavigate} from 'react-router-dom'
@@ -7,6 +8,7 @@ import Spinner from '../Spinner'
 import AuthContext from '../../context/auth/authContext'
 import defaultDpImg from "../images/default.png"
 import Likes from './Likes'
+import FunctionContext from '../../context/functions/functionContext'
 
 
 
@@ -15,6 +17,8 @@ function Uploads() {
   const auth_context = useContext(AuthContext);
   const {getAllPhoto, allPhotos, allPhotoLoading} = p_context;
   const {getAllUser, allUserArr, getUser} = auth_context;
+  const function_context = useContext(FunctionContext);
+  const {UserDetailFunc} = function_context;
   // use navigate hook
   const navigate = useNavigate();
   
@@ -52,25 +56,32 @@ function Uploads() {
           return <div key={element._id} className="home-card my-4" id='upload-card'>
           <div className="card-body">
 
-            <div className='d-flex justify-content-between'>
+            
               
                 {/* FETCH DP, NAME, ABOUT - FROM "allUserArr" */}
                 {allUserArr.map((e)=>{
                   if(element.user === e._id){
-                    return <div key={e._id} className='d-flex' id='dp-div'>
-                              <img src={`${e.dpFiles.length===0?defaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}`}`} className="" id='dp-img' alt="err"/>
-                              <div>
-                                  <h4 id='dp-name'>{e.name}</h4>
-                                  <p id='db-about'>{e.about}</p>
+                    return<div key={e._id} className='d-flex justify-content-between'>
+                              <div className='d-flex' id='dp-div'>
+                                      {/* redirect any user page by clicking dp */}
+                                      <Link to="/anyuser">
+                                        <img src={`${e.dpFiles.length===0?defaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}`}`} className="" id='dp-img' alt="err" onClick={()=>{UserDetailFunc(e)}}/>
+                                      </Link>
+                                      <div>
+                                          <h4 id='dp-name'>{e.name}</h4>
+                                          <p id='db-about'>{e.about}</p>
+                                      </div>
                               </div>
+                              <Link to="/anyuser"  onClick={()=>{UserDetailFunc(e)}}>
+                              <i id='follow-icon' className="fa-solid fa-plus"></i>
+                              </Link>
                           </div>
                   }else{
                     return "";
                   }
                 })}
               
-              <i id='follow-icon' className="fa-solid fa-plus"></i>
-            </div>  
+                
             <hr id='dp-line'/>
 
             <p className="card-text" id='upload-title'>{element.title}.</p>

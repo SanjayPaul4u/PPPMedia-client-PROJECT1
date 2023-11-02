@@ -8,12 +8,12 @@ function UpdateModal() {
   return (
     <div>
         {/* <!-- Button trigger modal --> */}
-        <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalTwo2" ref={clickUpdateModalRef} >
+        <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalTwo234" ref={clickUpdateModalRef} >
         Launch demo modal
         </button>
 
         {/* <!-- Modal --> */}
-        <div className="modal fade" id="exampleModalTwo2" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModalTwo234" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">

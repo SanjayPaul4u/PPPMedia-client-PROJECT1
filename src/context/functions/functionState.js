@@ -139,6 +139,16 @@ const FunctionState = (props)=>{
     }
 
 
+
+     //______________________________________________________________
+    // Any user page  - LOGICS 
+    // _____________________________________________________________
+    const [userDataObject, setUserDataObject] = useState(null)
+    const UserDetailFunc = (userdataObj) =>{
+        setUserDataObject(userdataObj);
+        console.log("clicked");
+    }
+
     return <FunctionContext.Provider value = {{
         clickUpdateModalRef,
         onClickOpenUpdateModalFunc,
@@ -169,7 +179,9 @@ const FunctionState = (props)=>{
 
         OpenLikesModalRef,
         onclickLikeNumber,
-        LikesArr
+        LikesArr,
+        UserDetailFunc,
+        userDataObject
          } }>
             {props.children}
     </FunctionContext.Provider>

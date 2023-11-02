@@ -17,6 +17,8 @@ import DpUpdateModal from './components/user/DpUpdateModal';
 import OtherState from './context/others_api_call/otherState';
 import NameAndAboutUpdateModal from './components/user/NameAndAboutUpdateModal';
 import PeoplesofLikeModal from './components/home/PeoplesofLikeModal';
+import MainAnyUser from './components/anyuser/MainAnyUser';
+
 
 
 /*
@@ -52,6 +54,7 @@ function App() {
             <Route exact path='/user' element={<User/>}/>
             <Route exact path='/login' element={<Login/>}/>
             <Route exact path='/signup' element={<Signup/>}/>
+            <Route exact path='/anyuser' element={<MainAnyUser/>}/>
             <Route exact path='/*' element={<Error404page/>}/>
             
         </Routes>

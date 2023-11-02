@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import AuthContext from '../../context/auth/authContext'
 import DefaultDpImg from '../images/default.png'
+import { Link } from 'react-router-dom';
+import FunctionContext from '../../context/functions/functionContext';
+
 
 
 function Peoples() {
     const auth_context = useContext(AuthContext);
     const {allUserArr} = auth_context;
+    const function_context = useContext(FunctionContext);
+    const {UserDetailFunc} = function_context;
   return (
     <>
     {/* main-peoples-div */}
@@ -22,16 +27,22 @@ function Peoples() {
                          return  <div key={e._id} className={`carousel-item ${index===0?"active":""}`} data-bs-interval="2000">
                                     <div className='d-flex justify-content-between align-items-center peoples-carousel-div'>
                                         <div className='d-flex'>
-                                            <img src={`${e.dpFiles.length===0?DefaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}` }`} className="d-block peoples-carousel-img" alt="imgError"/>
+                                            {/* navigate to user page */}
+                                            <Link to="/anyuser">
+                                            <img src={`${e.dpFiles.length===0?DefaultDpImg:`data:${e.dpFiles[0].fileType};base64,${e.dpFiles[0].imagebase64}` }`} className="d-block peoples-carousel-img" alt="imgError" onClick={()=>{UserDetailFunc(e)}}/>
+                                            </Link>
+
                                             <div id='carousel-user'>
                                                 <h4>{e.name}</h4>
                                                 <p>{e.about}</p>
                                             </div>
                                         </div>
                                         <div className='text-primary'>
+                                        <Link to="/anyuser"  onClick={()=>{UserDetailFunc(e)}}>
                                             <i className="fa-solid fa-plus pe-1 text-primary"><br /></i>
                                             Follow
-                                        </div>                            
+                                        </Link>                         
+                                        </div>
                                     </div>              
                                 </div>
 

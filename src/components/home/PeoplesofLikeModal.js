@@ -1,9 +1,19 @@
 import React, { useContext } from 'react'
 import FunctionContext from '../../context/functions/functionContext'
+// import OtherContext from '../../context/others_api_call/otherContext';
+
 
 function PeoplesofLikeModal() {
     const function_context = useContext(FunctionContext);
     const {OpenLikesModalRef, LikesArr} = function_context;
+    // const other_context = useContext(OtherContext);
+    // const {getUserByEmail} = other_context;
+
+
+    const getUserFunc = (email)=>{
+        console.log(email);
+    }
+    
   return (
     <div>        
         {/* <!-- Button trigger modal --> */}
@@ -21,7 +31,9 @@ function PeoplesofLikeModal() {
             </div>
             <div className="modal-body">
                 {LikesArr.length!==0 && LikesArr.map((e)=>{
-                    return <p key={e}>{e}</p>
+                    return <div key={e}>
+                                <h6 onClick={getUserFunc(e)}>{e}</h6>
+                        </div> 
                 })}
             </div>
             <div className="modal-footer">
