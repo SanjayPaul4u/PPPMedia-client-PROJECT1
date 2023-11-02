@@ -199,7 +199,8 @@
     font-size: 1.5rem;
 }
 #solid-liked-icon{
-    color: #3ecdb4b8;
+    /* color: #3ecdb4b8; */
+    color: rgb(79, 79, 79);
     font-size: 1.7rem;
     margin-top: 0.13rem;
     margin-left: -1.87rem;
