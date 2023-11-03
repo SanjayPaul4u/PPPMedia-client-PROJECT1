@@ -12,22 +12,22 @@ function Home() {
       {/* row */}
         <div className="row d-flex justify-content-between">
           {/* 1st rows -  */}
-          <div className='home-rows col-4 col-md-4 col-xl-4 ' id="homeRow1" >
-            <div className='fixed-top' id='sidebar1'>
+          <div className='home-rows col-4 col-md-6 col-xl-4 ' id="homeRow1" >
+            <div className='' id='sidebar1'>  {/* fix top change */}
               <Peoples/>
             </div>
           </div>
 
 
           {/* 2nd row - ALL UPLOADED PHOTO */}
-          <div className='mx-auto home-rows col-6 col-md-6 col-xl-6 ' id="homeRow2"> 
+          <div className='mx-auto home-rows col-12 col-md-6 col-xl-6 ' id="homeRow2"> 
              <Uploads/>
           </div>
 
           
           {/* 3rd row - USER SIDE BAR */}
           <div className='bd-sidebar home-rows col-2 col-md-2 col-xl-2 ' id="homeRow3"> 
-          <div className='fixed-top' id='sidebar2'>
+          <div className='' id='sidebar2'> {/* fix top change */}
               <Usersidebar/>
           </div>
           </div>
