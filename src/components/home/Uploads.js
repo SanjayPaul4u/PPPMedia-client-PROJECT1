@@ -84,6 +84,7 @@ function Uploads() {
                 
             <hr id='dp-line'/>
 
+            <h6>Uploaded on {new Date (element.createdAt).toDateString()}</h6>
             <p className="card-text" id='upload-title'>{element.title}.</p>
             {element.files.length ===0 && <h6>No uploaded Photos to Display</h6>}
             {element.files.map((element)=>{

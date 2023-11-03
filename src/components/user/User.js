@@ -15,9 +15,16 @@ function User() {
   const [filesArrForModal, setfilesArrForModal] = useState(null);
   const [titleForModal, setTitleForModal] = useState("");
 
+  console.log(filesArrForModal);
+
   // MODAL OPEN REF FUNCTION
   const modalOpenRefFunc = () =>{
     modalOpenRef.current.click();
+  }
+
+   // filesArrForModal is not null then open modal
+   if(filesArrForModal){
+    modalOpenRefFunc();
   }
 
   // MODAL UPLOAS REF FUNCTION
@@ -27,17 +34,15 @@ function User() {
     setTitleForModal("");
     setfilesArrForModal(null);
   }
-  // ON CLICK CHANGE FUNCTION FOR INPUT
+
+   // ON CLICK CHANGE FUNCTION FOR INPUT
   const onClickChangeTitleForInput = () =>{
     setTitleForModal("");
-    // setfilesArrForModal(null);
+    setfilesArrForModal(null);
 
-    // RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN
-    if (resetFileInputRef.current) { 
-      resetFileInputRef.current.value = ""; 
-      resetFileInputRef.current.type = "text"; 
-      resetFileInputRef.current.type = "file"; 
-  } 
+    // RESET FILE INPUT - BY THIS ref "reset FileInputRef"
+    resetFileInputRef.current.click();
+    
   }
   
   return (
@@ -86,14 +91,14 @@ function User() {
         <div id='user-row' className="row">
           {/* FIRST ROW - USER PROFILE */}
           <div id='user-profile' className="com-4 col-md-4 col-xl-4">
-            <div id='user-profile-fix-div' className='fixed-top'>
-              <Userprofile modalOpenRefFunc={modalOpenRefFunc} setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef} titleForModal={titleForModal} resetFileInputRef={resetFileInputRef}/>                    
+            <div id='user-profile-fix-div' className=''> {/* updated : created non fix div */}
+              <Userprofile setfilesArrForModal={setfilesArrForModal} setTitleForModal={setTitleForModal} modalUploadRef={modalUploadRef} titleForModal={titleForModal} resetFileInputRef={resetFileInputRef}/>                    
             </div>
           </div>
 
 
           {/* SECOND ROW - USER PHOTOS */}
-          <div id='users-photos' className="com-8 col-md-8 col-xl-8">
+          <div id='users-photos' className="col-12 col-md-8 col-xl-8">
             <Userphotos/>
           </div>
         </div>

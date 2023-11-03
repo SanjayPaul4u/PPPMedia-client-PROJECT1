@@ -14,6 +14,7 @@
 }
 #user-profile{
     /* background-color: red; */
+    padding: 0;
 }
 #users-photos{
     /* background-color: white; */
@@ -23,12 +24,14 @@
 
 }
 #user-profile-fix-div{
-    /* background-color: red; */
-    top: 4rem;
+    /* background-color: red;
+    border: 5px solid red; */
+
+    /* top: 4rem;//delete0
     left: 8.7rem;
     width: 27.5%;
     height: 90%;
-    border-radius: 0.3rem;
+    border-radius: 0.3rem;//delete1 */
 }
 
 /* STYLING 'USERPHOTOS' COMPONENT */

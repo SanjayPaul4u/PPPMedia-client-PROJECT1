@@ -1,6 +1,8 @@
 #main-about-component{
-    height: 90.5vh;
+    min-height: 90.5vh;
+    max-height: 100%;
     width: 100%;
+    margin-bottom: 1rem;
 }
 #about-component{
     background-color: white;    

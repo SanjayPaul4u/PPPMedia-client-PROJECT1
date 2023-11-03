@@ -1,7 +1,8 @@
 #main-login-component{
     background-color: white;
     margin-top: 4rem;
-    height: 90vh;
+    min-height: 90vh;
+    max-height: auto;
     border-radius: 0.3rem;
     padding: 1.3rem;
 }
@@ -23,4 +24,24 @@
     padding: 1rem;
     border: 0.2rem solid #aaeeea;
     border-radius: 0.3rem;
+}
+
+@media only screen and (max-width: 992px) {
+    #login-img-div img{
+        height: 22rem;
+        padding-top: 3rem;
+    }
+    #login-form-div {
+        padding: 0rem;
+        padding-top: 2rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #login-img-div {
+        display: none;
+    }
+    #login-form-div {
+        padding: 1rem;
+        width: 100%;
+    }
 }

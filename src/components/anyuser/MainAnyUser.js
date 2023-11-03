@@ -39,7 +39,6 @@ function MainAnyUser() {
                 <h6>{userDataObject.about}</h6>
                 
             </div>
-            <hr style={{width: "90%", margin:"auto"}}/>
 
 
             {/* ANY USER'S PHOTO */}
@@ -50,10 +49,11 @@ function MainAnyUser() {
                     {anyUserAllPhotos.length===0 && <p className='text-center mt-4'>No photos Uploaded by {userDataObject.name}</p> }
                     {anyUserAllPhotos.length!==0 &&
                         anyUserAllPhotos.map((e)=>{
-                            return <div key={e._id} className="col-10 col-md-4 col-xl-4">
+                            return <div key={e._id} id='any-user-photo-div' className="col-12 col-md-6 col-xl-4 my-2">
                                         {/* card */}
                                         <div className="card" id='any-user-photos-card'>
                                                 <div className="card-body">
+                                                    <h6>Uploaded on {new Date (e.createdAt).toDateString()}</h6>
                                                     <p className="card-text">{e.title}</p>
 
                                                         {e.files.length ===0 && <h6>No uploaded Photos to Display</h6>}

@@ -1,7 +1,8 @@
 #main-signup-component{
     background-color: white;
     margin-top: 4rem;
-    height: 90vh;
+    min-height: 90vh;
+    max-height: auto;
     border-radius: 0.3rem;
     padding: 1.3rem;
 }
@@ -18,4 +19,20 @@
     border: 0.3rem solid #aaeeea;
     padding: 1rem;
     border-radius: 0.3rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    #signup-form-div {
+        padding: 0rem 15rem 0 15rem;
+    }
+}
+@media only screen and (max-width: 992px) {
+    #signup-form-div {
+        padding: 0rem 7rem 0 7rem;
+    }
+}
+@media only screen and (max-width: 572px) {
+    #signup-form-div {
+        padding: 0rem;
+    }
 }

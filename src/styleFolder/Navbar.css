@@ -16,3 +16,12 @@
 #nav-img{
     height: 2.5rem;
 }
+
+/* @media only screen and (max-width: 992px){
+    .nav-link{
+        color : none;
+        font-weight:none;
+        border-bottom: none;
+        margin-bottom:none;
+    }
+} */

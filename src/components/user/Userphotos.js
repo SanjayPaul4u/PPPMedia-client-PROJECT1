@@ -39,22 +39,20 @@ function Userphotos() {
   return (
     <div id='main-user-photos'>
         {/* header */}
-        {/* <UpdateModal/> */}
         <div>
             <h2 id='main-user-photos-heading'>Your All Photos</h2>
         </div>
 
-        <div className="row">   
-
-            {/* SPINNER */}
-            {userPhotoLoading && <div className='mt-4 text-center p-2' style={{backgroundColor: 'white', borderRadius:"0.3rem"}}>
+        {/* SPINNER */}
+        {userPhotoLoading && <div className='mt-4 text-center p-2' style={{backgroundColor: 'white', borderRadius:"0.3rem", margin:"1rem 0 1rem 0"}}>
                 <Spinner/>
             </div>}
-            
+
+        <div className="row">  
             {userPhotos.length===0 && !userPhotoLoading && <p>No Photos Uploaded</p>}
             {userPhotos.map((element)=>{
 
-                return <div key={element._id} className="col-4 col-md-4 col-xl-4 my-2">
+                return <div key={element._id} className="col-12 col-md-6 col-xl-4 my-2">
                 <div className="card" style={{border:"none"}}>
                     {/* card */}
                     {deleteStatus.id ===element._id && deleteStatus.isDelete===true && <DeleteAlert id ={element._id}/>}
@@ -74,9 +72,8 @@ function Userphotos() {
                                 return<img key={element.filePath} src={`data:${element.fileType};base64,${element.imagebase64}`} className="card-img-top" alt="imgErr"/>                            
                             })}
 
-                            <h6>Total like 2023</h6>
-                            <h6>Total comment 500</h6>
-                            <h6>Uploaded on 15 oct - 2023</h6>
+                            <h6>Total like {element.likes.length}</h6>
+                            <h6>Uploaded on {new Date (element.createdAt).toDateString()}</h6>
                         </div>
                     </div>
                 </div>

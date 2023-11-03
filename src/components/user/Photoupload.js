@@ -6,7 +6,7 @@ import PhotoContext from '../../context/photos/photoContext';
 
 function Photoupload(props) {
   // const anyRef = useRef();
-  const chooseFileRef = useRef(props.resetFileInputRef);
+  const chooseFileRef = useRef();
   const filesArr = [];
   const p_context = useContext(PhotoContext);
   const {uploadPhoto} = p_context;
@@ -14,6 +14,7 @@ function Photoupload(props) {
   const [files, setFiles] = useState("")
 
 
+ 
   // choose files function***
   const chooseFileFunc = ()=>{
     chooseFileRef.current.click();
@@ -21,7 +22,7 @@ function Photoupload(props) {
   // onchnage files input function****
   const onChangeFilesFunc = async(event) =>{
     const filesObj = event.target.files;
-    console.log(filesObj);
+    // console.log(filesObj);
 
     for (let index = 0; index < filesObj.length; index++) {
       const element =URL.createObjectURL(filesObj[index]);
@@ -39,6 +40,14 @@ function Photoupload(props) {
     setTitle(event.target.value);
     
   }
+  // RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN
+  const resetFileFunc = () =>{
+    if (chooseFileRef.current) { 
+      chooseFileRef.current.value = ""; 
+      chooseFileRef.current.type = "text"; 
+      chooseFileRef.current.type = "file"; 
+  } 
+  }
 
   // onClickUpload function
   const onClickUploadPhoto = async() =>{
@@ -50,29 +59,21 @@ function Photoupload(props) {
     }
     await uploadPhoto(formData);
     // after uploading value will be blank
-    setTitle("");
-
-    // RESET FILE INPUT - BY THIS CODE YOU CAN UPLOAD SAME FILE AGAIN AND AGAIN
-    if (chooseFileRef.current) { 
-      chooseFileRef.current.value = ""; 
-      chooseFileRef.current.type = "text"; 
-      chooseFileRef.current.type = "file"; 
-  } 
+    setTitle("");   
+    resetFileFunc();
+    
   }
 
-
-  
- 
   return (
     
     <>
     {/* PHOTO UPLOAD SIDEBAR************* */}
-    <div id="main-photo-upload">
+    <div id="main-photo-upload" className='mb-2'>
         <h3>Upload Photos</h3>
         <hr />
         <div>
             {/* display none - files - input function */}
-            <input type="file" className="form-control d-none" id="exampleInputFiles1" aria-describedby="filesHelp" name='files' ref={chooseFileRef}  multiple onChange={onChangeFilesFunc} accept='image/jpeg, image/png, image/jpg' onClick={props.modalOpenRefFunc}></input>
+            <input type="file" className="form-control d-none" id="exampleInputFiles1" aria-describedby="filesHelp" name='files' ref={chooseFileRef}  multiple onChange={onChangeFilesFunc} accept='image/jpeg, image/png, image/jpg'></input>
 
             <label htmlFor="exampleInputTitle1" className="form-label">TITLE: </label>
             <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="titleHelp" name='title' value={props.titleForModal} placeholder='Set Title Here' onChange={onChangeTitleFunc} ></input>
@@ -82,6 +83,7 @@ function Photoupload(props) {
             <label htmlFor="exampleInputTitle1" className="form-label mt-2">ChOOSE PHOTO: </label>
         </div>
         <img className='mt-2' src={addImg} alt="errImg" style={{width:"3rem"}} onClick={chooseFileFunc}/> <br />
+        <button className='btn btn-sm btn-danger d-none' ref={props.resetFileInputRef} onClick={resetFileFunc}>Cancel</button>
     </div>
 
     
