@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+
 #main-login-component{
     background-color: white;
     margin-top: 4rem;
@@ -15,26 +17,90 @@
 #login-img-div{
     border-radius:51% 49% 76% 24% / 48% 56% 44% 52% ;
     background-color: rgb(245, 245, 245);
+    margin-top: 2rem;
 }
 
 #login-form-div{
-    padding: 4rem;
+    padding: 3rem;
+    padding-right: 12rem;
+}
+#login-form-div h1{
+    margin-bottom: 3rem;
+    font-weight: 600;
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 0.05rem;
+}
+#login-form-div h6{
+    font-family: 'Kanit', sans-serif;
+    color: #303030;
 }
 #login-form-div form{
-    padding: 1rem;
-    border: 0.2rem solid #aaeeea;
-    border-radius: 0.3rem;
+}
+#login-form-div form button{
+    background-color: #3ecdb4b8;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #303030;
+    margin-bottom: 6rem;
+    border-left: 1rem solid #303030;
+}
+#login-form-div form button:hover{
+    background-color: #303030;
+    color: white;
+    border-left: 1rem solid #3ecdb4b8;
+    transition: all 0.5s;
+}
+#login-email-input{
+    width: 100%;
+    padding: 0.2rem;
+    padding-left: 1.7rem;
+    border: none;
+    outline: none;
+    border-bottom: 0.1rem solid #303030;
+    margin-top: -0.8rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+#login-email-input::placeholder{
+    color: grey;
+}
+#login-password-input{
+    width: 100%;
+    padding: 0.2rem;
+    padding-left: 1.7rem;
+    border: none;
+    outline: none;
+    border-bottom: 0.1rem solid rgb(48, 48, 48);
+    margin-top: -0.8rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+#login-password-input::placeholder{
+    color: grey;
 }
 
+@media only screen and (max-width: 1199px) {
+    #login-form-div {
+        padding-right: 7rem;
+    }
+    #login-email-input ,#login-password-input{
+        font-size: 1rem;
+    }
+}
 @media only screen and (max-width: 992px) {
     #login-img-div img{
         height: 22rem;
         padding-top: 3rem;
     }
     #login-form-div {
-        padding: 0rem;
+        padding: 2rem;
         padding-top: 2rem;
     }
+    
 }
 @media only screen and (max-width: 768px) {
     #login-img-div {
@@ -43,5 +109,28 @@
     #login-form-div {
         padding: 1rem;
         width: 100%;
+    }
+    #main-login-component{
+        padding: 1rem 5rem;
+    }
+    #login-form-div form button {
+        margin-bottom: 3rem;
+    }
+    #login-email-input, #login-password-input{
+        font-size: 0.9rem;
+    }
+}
+@media only screen and (max-width: 410px){
+    #main-login-component {
+        padding: 1rem;
+    }
+    #login-form-div form button {
+        padding: 0.5rem 2rem;
+    }
+    #login-form-div h6 {
+        font-size: 0.8rem;
+    }
+    #login-email-input, #login-password-input{
+        font-size: 0.8rem;
     }
 }

@@ -38,26 +38,33 @@ function Login() {
   return (
     <div id='main-login-component' className='container'>
         <div id='login-component'>
-            <h1 id='login-header'>Login To Use PPP Media </h1>
-            <hr />
 
             <div className="row">
                 <div id="login-img-div" className="col-6 col-md-6 col-xl-6 text-center">
                   <img src={LoginImg} alt="imgError" />
                 </div>
                 <div id="login-form-div" className="col-6 col-md-6 col-xl-6">
-                  {/* login form start*/}
+                    <h1>Login In</h1>
 
+                  {/* login form start*/}
                     <form onSubmit={onSubmitLoginFunc}>
-                      <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' onChange={onChangeFunc} value={userData.email}/>
+                      <div className="mb-3 position-relative">
+
+                        <label htmlFor="exampleInputEmail1" className="form-label position-absolute">
+                          <i className="fa-solid fa-user"></i>
+                        </label>
+                        <input type="email" className="" id="login-email-input" aria-describedby="emailHelp" name='email' onChange={onChangeFunc} value={userData.email} autoComplete="user-email" placeholder='Your Email'/>
+
                       </div>
-                      <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" name='password' onChange={onChangeFunc} value={userData.password} minLength={5} required/>
+                      <div className="mb-3 position-relative">
+
+                        <label htmlFor="exampleInputPassword1" className="form-label position-absolute">
+                          <i className="fa-solid fa-lock"></i>
+                        </label>
+                        <input type="password" className="" id="login-password-input" name='password' onChange={onChangeFunc} value={userData.password} autoComplete="current-password" placeholder='Password' minLength={5} maxLength={15} required/>
+
                       </div>
-                      <button type="submit" className="btn btn-primary">Login</button>
+                      <button type="submit" >Login</button>
 
                         <div>
                           <h6 className="my-2">If You Don't Have Account Then <Link to="/signup" role="button">SignUp</Link></h6>

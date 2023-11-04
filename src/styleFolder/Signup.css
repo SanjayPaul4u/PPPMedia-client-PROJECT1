@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+
 #main-signup-component{
     background-color: white;
     margin-top: 4rem;
@@ -5,34 +7,93 @@
     max-height: auto;
     border-radius: 0.3rem;
     padding: 1.3rem;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
 }
 #signup-header{
-    font-size: 1.6rem;
-    color: rgb(82, 82, 82);
-    text-align: center;
-    margin-bottom: 1rem;
+    font-family: 'Kanit', sans-serif;
+    margin-top: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+#signup-header-h6{
+    margin-bottom: 3rem;
+    font-weight: 500;
+    color: grey;
+    font-family: 'Kanit', sans-serif;
+}
+#signup-footer-h6{
+    font-weight: 500;
+    font-family: 'Kanit', sans-serif;
+    color: #303030;
 }
 #signup-form-div{
-    padding: 0rem 23rem 0 23rem;
-}
-#signup-form-div form{
-    border: 0.3rem solid #aaeeea;
-    padding: 1rem;
+    padding: 2.5rem;
     border-radius: 0.3rem;
+    /* border: 1px solid black; */
+    width: 35rem;
+    height: 100%;
+}
+#signup-form-div input{
+    width: 100%;
+    padding: 0.2rem;
+    padding-left: 1.7rem;
+    margin-top: -0.8rem;
+    border: none;
+    outline: none;
+    border-bottom: 0.1rem solid #303030;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+#signup-form-div input::placeholder{
+    color: grey;
+}
+#signup-form-div form button{
+    background-color: #3ecdb4b8;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #303030;
+    margin-bottom:1rem;
+    border-left: 1rem solid #303030;
+}
+#signup-form-div form button:hover{
+    background-color: #303030;
+    color: white;
+    border-left: 1rem solid #3ecdb4b8;
+    transition: all 0.5s;
 }
 
 @media only screen and (max-width: 1200px) {
-    #signup-form-div {
-        padding: 0rem 15rem 0 15rem;
+    #signup-form-div input{
+        font-size: 0.9rem;
+    }
+    #signup-header-h6{
+        font-size: 0.8rem;
+    }
+    #signup-footer-h6{
+        font-size: 0.8rem;
     }
 }
-@media only screen and (max-width: 992px) {
-    #signup-form-div {
-        padding: 0rem 7rem 0 7rem;
+@media only screen and (max-width: 575px) {
+    #signup-form-div{
+        width: 25rem;
+    }
+    #signup-form-div form button{
+        padding: 0.5rem 1rem;
     }
 }
-@media only screen and (max-width: 572px) {
-    #signup-form-div {
-        padding: 0rem;
+@media only screen and (max-width: 400px) {
+    #signup-form-div{
+        width: 20rem;
+    }
+}
+@media only screen and (max-width: 311px) {
+    #signup-form-div{
+        width: 15rem;
     }
 }
