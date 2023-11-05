@@ -13,7 +13,7 @@ function About() {
     if(!GetCookie('auth-token')){
       navigate('/login');
     }
-  
+    window.scrollTo(0, 0);
     // eslint-disable-next-line
   }, [])
   

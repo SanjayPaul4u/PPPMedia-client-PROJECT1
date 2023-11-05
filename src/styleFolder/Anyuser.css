@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+
 #any-user-main-container{
     /* background-color: red;
     min-height: 100vh;
@@ -24,6 +26,14 @@
     width: 10rem;
     border-radius: 50%;
 }
+#any-user-head h3{
+    font-family: 'Kanit', sans-serif;
+    color: #303030;
+    font-weight: 600;
+}
+#any-user-head h6{
+    color: #525252;
+}
 #any-user-photos{
     padding: 1rem;
     background-color: #cbe9e9;
@@ -36,6 +46,7 @@
    margin-top: 1rem;
    padding: 1.5rem;
    border-radius: 0.3rem;
+   font-family: 'Kanit', sans-serif;
 }
 #any-user-photos-card{
     
@@ -43,7 +54,18 @@
 #any-user-card-img{
     width: 100%;
 }
-
+#any-user-photo-div #any-user-photos-card .card-body h6{
+    font-size: 1rem;
+    font-weight: 500;
+    color: grey;
+    font-family: 'Kanit', sans-serif;
+}
+#any-user-photo-div #any-user-photos-card .card-body p{
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Kanit', sans-serif;
+    color: #303030;
+}
 @media only screen and (max-width :767px) {
     #any-user-photo-div{
         margin: auto;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import  '../../styleFolder/Home.css'
 import Uploads from './Uploads'
 import Usersidebar from './Usersidebar'
@@ -7,6 +7,10 @@ import Peoples from './Peoples'
 
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   return (
     <div id='homeDiv' className='container'>
       {/* row */}

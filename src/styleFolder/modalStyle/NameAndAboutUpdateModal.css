@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+
+#exampleName_n_AboutUpdateModal form{
+}
+
+#exampleName_n_AboutUpdateModal h5{
+    font-size: 2rem;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+#exampleName_n_AboutUpdateModal form label{
+    color: grey;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-top: -0.1rem;
+}
+
+#exampleName_n_AboutUpdateModal form input{
+    padding: 0.5rem 4.5rem;
+    margin-top: -1rem;
+    border: none;
+    outline: none;
+    border-bottom: 0.1rem solid #303030;
+    width: 100%;
+    color: #303030;
+}
+
+#exampleName_n_AboutUpdateModal form .warning-msg-div{
+    height: 2.5rem;
+}
+#exampleName_n_AboutUpdateModal form p{
+    margin-bottom: 2rem;
+    color: #ff8282;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+#exampleName_n_AboutUpdateModal .modal-footer button{
+    padding: 0.4rem 2rem;
+    border: none;
+    
+}
+#exampleName_n_AboutUpdateModal .modal-footer button:hover{    
+   background-color: #3ecdb4b8;
+   color: #303030;
+   border: none;
+   transition: all 0.5s;
+}
+
+ @media only screen and (max-width: 1199px) {
+    #exampleName_n_AboutUpdateModal h5{
+        font-size: 1.5rem;
+    }
+    #exampleName_n_AboutUpdateModal .modal-footer button{
+        padding: 0.3rem 1.5rem;
+        
+    }
+    #exampleName_n_AboutUpdateModal form label{
+        font-size: 1.1rem;
+        margin-top: 0rem;
+    }
+    #exampleName_n_AboutUpdateModal form input{
+        font-size: 1rem;
+    }
+} 
+
+@media only screen and (max-width: 350px){
+    #exampleName_n_AboutUpdateModal h5{
+        font-size: 1.3rem;
+    }
+    #exampleName_n_AboutUpdateModal .modal-footer button{
+        padding: 0.3rem 1.1rem;
+        
+    }
+}

@@ -69,20 +69,28 @@ function Photoupload(props) {
     <>
     {/* PHOTO UPLOAD SIDEBAR************* */}
     <div id="main-photo-upload" className='mb-2'>
-        <h3>Upload Photos</h3>
-        <hr />
+        <h2>Upload Photos</h2>
         <div>
             {/* display none - files - input function */}
             <input type="file" className="form-control d-none" id="exampleInputFiles1" aria-describedby="filesHelp" name='files' ref={chooseFileRef}  multiple onChange={onChangeFilesFunc} accept='image/jpeg, image/png, image/jpg'></input>
 
-            <label htmlFor="exampleInputTitle1" className="form-label">TITLE: </label>
-            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="titleHelp" name='title' value={props.titleForModal} placeholder='Set Title Here' onChange={onChangeTitleFunc} ></input>
+            <div className='position-relative'>
+                <label htmlFor="exampleInputTitle1" className="form-label position-absolute">
+                    <i className="fa-solid fa-address-card"></i>
+                </label>
+                <input type="text" id="exampleInputTitle1" aria-describedby="titleHelp" name='title' value={props.titleForModal} placeholder='Add Title' onChange={onChangeTitleFunc} minLength={3} maxLength={100} required></input>
+                {/* WARNING TITLE DESCRIPTION ADD */}
+                {title.length>=1 && title.length<3 ? <p id='error-paragraph'>Title Must be 3 to 100 Characters</p>: ""}
+            </div>
             {/* display none button */}
             <button  className="btn btn-sm btn-success mt-2 d-none" onClick={onClickUploadPhoto} ref={props.modalUploadRef}>Upload Photos</button>
 
-            <label htmlFor="exampleInputTitle1" className="form-label mt-2">ChOOSE PHOTO: </label>
+            {/* <label htmlFor="exampleInputTitle1" className="form-label mt-2">ChOOSE PHOTO: </label> */}
         </div>
-        <img className='mt-2' src={addImg} alt="errImg" style={{width:"3rem"}} onClick={chooseFileFunc}/> <br />
+
+        <button disabled={title.length<3?true:false} style={{backgroundColor:"white", cursor:"pointer"}}>
+            <img className='mt-2'  src={addImg} alt="errImg"  onClick={chooseFileFunc}/> <br />
+        </button>
         <button className='btn btn-sm btn-danger d-none' ref={props.resetFileInputRef} onClick={resetFileFunc}>Cancel</button>
     </div>
 

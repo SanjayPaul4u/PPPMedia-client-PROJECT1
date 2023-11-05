@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "../../styleFolder/User.css"
+import "../../styleFolder/modalStyle/PhotoUploadModal.css"
 import Userprofile from './Userprofile'
 import Userphotos from './Userphotos'
 
@@ -15,8 +16,12 @@ function User() {
   const [filesArrForModal, setfilesArrForModal] = useState(null);
   const [titleForModal, setTitleForModal] = useState("");
 
-  console.log(filesArrForModal);
+  // console.log(filesArrForModal);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   // MODAL OPEN REF FUNCTION
   const modalOpenRefFunc = () =>{
     modalOpenRef.current.click();
@@ -50,17 +55,17 @@ function User() {
     {/* MODAL STARTED */}
     <div>
         {/* <!-- Button trigger modal --> */}
-        <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" ref={modalOpenRef} >
+        <button type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#examplePhotoUploadModal" ref={modalOpenRef} >
         Launch demo modal
         </button>
 
         {/* <!-- Modal --> */}
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div className="modal fade" id="examplePhotoUploadModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
 
         <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Check Your Photos and Upload...</h5>
+                  <h5 className="modal-title" id="exampleModalLabel">Ready to Upload</h5>
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ref={modalCloseRef} onClick={onClickChangeTitleForInput}></button>
               </div>
               <div className="modal-footer">

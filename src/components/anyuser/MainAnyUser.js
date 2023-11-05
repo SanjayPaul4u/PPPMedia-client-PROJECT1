@@ -4,7 +4,7 @@ import "../../styleFolder/Anyuser.css"
 import DefaultImg from '../images/default.png'
 import FunctionContext from '../../context/functions/functionContext';
 import OtherContext from '../../context/others_api_call/otherContext';
-
+import Spinner from '../Spinner';
 
 
 
@@ -12,7 +12,7 @@ function MainAnyUser() {
     const function_context = useContext(FunctionContext);
     const {userDataObject} = function_context;
     const other_context = useContext(OtherContext);
-    const {anyUserAllPhotos, getPhotosById} = other_context;
+    const {anyUserAllPhotos, getPhotosById, Loading} = other_context;
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -26,7 +26,7 @@ function MainAnyUser() {
         // eslint-disable-next-line
     }, [])
     
-    
+    // console.log(Loading);
   return (
     <>
     {userDataObject !==null && <div className='container' id='any-user-main-container'>        
@@ -44,9 +44,10 @@ function MainAnyUser() {
             {/* ANY USER'S PHOTO */}
             <div id="any-user-photos">
                 <h5>{userDataObject.name}'s All Aploaded Photos</h5>
+                {Loading && <div style={{backgroundColor:"white", textAlign: "center"}}> <Spinner/> </div>}
+
                 <div className="row">
-                    
-                    {anyUserAllPhotos.length===0 && <p className='text-center mt-4'>No photos Uploaded by {userDataObject.name}</p> }
+                    {Loading===false && anyUserAllPhotos.length===0 && <p className='text-center mt-4'>No photos Uploaded by {userDataObject.name}</p> }
                     {anyUserAllPhotos.length!==0 &&
                         anyUserAllPhotos.map((e)=>{
                             return <div key={e._id} id='any-user-photo-div' className="col-12 col-md-6 col-xl-4 my-2">
@@ -60,7 +61,7 @@ function MainAnyUser() {
                                                         {e.files.map((element)=>{
                                                         return <img key={element.filePath} src={`data:${element.fileType};base64,${element.imagebase64}`} id="any-user-card-img" alt="err"/> 
                                                         })}
-                                                    <h6>Total Like : {e.likes.length}</h6>
+                                                    <h6 className='mt-2'>Total Like : {e.likes.length}</h6>
                                                 </div>
                                             </div>
                                         {/* card end*/}

@@ -50,7 +50,7 @@ function Login() {
                     <form onSubmit={onSubmitLoginFunc}>
                       <div className="mb-3 position-relative">
 
-                        <label htmlFor="exampleInputEmail1" className="form-label position-absolute">
+                        <label htmlFor="login-email-input" className="form-label position-absolute">
                           <i className="fa-solid fa-user"></i>
                         </label>
                         <input type="email" className="" id="login-email-input" aria-describedby="emailHelp" name='email' onChange={onChangeFunc} value={userData.email} autoComplete="user-email" placeholder='Your Email'/>
@@ -58,7 +58,7 @@ function Login() {
                       </div>
                       <div className="mb-3 position-relative">
 
-                        <label htmlFor="exampleInputPassword1" className="form-label position-absolute">
+                        <label htmlFor="login-password-input" className="form-label position-absolute">
                           <i className="fa-solid fa-lock"></i>
                         </label>
                         <input type="password" className="" id="login-password-input" name='password' onChange={onChangeFunc} value={userData.password} autoComplete="current-password" placeholder='Password' minLength={5} maxLength={15} required/>

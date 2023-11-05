@@ -23,13 +23,13 @@ function Userprofile(props) {
           <img id='dp-image' src={`${authUserData.dpFiles.length===0?dpDefaultImg:`data:${authUserData.dpFiles[0].fileType};base64,${authUserData.dpFiles[0].imagebase64}`}`} alt="imgErr-todo-updatelink" />
 
           {/* choose file by click on this image */}
-          <img src={addDpImg} alt="imgErr" style={{height:"2rem"}} onClick={onCLickImage}/>
+          <img src={addDpImg} id='add-image-icon' alt="imgErr" style={{height:"2rem"}} onClick={onCLickImage}/>
           {/* display none FILE input */}
           <input type="file" className="form-control d-none" id="exampleFormControlInput1" placeholder="choose file for dp" accept='image/jpeg, image/png, image/jpg' ref={fileInputRef} onChange={dpInputOnchangeFunc}/>
 
           
-        <h4 className='my-2' onClick={()=>{onCLickPenIcon(authUserData.name, authUserData.about)}}>{authUserData.name} <i className="fa-solid fa-pen"></i></h4> 
-        <h6>{authUserData.about}</h6>
+        <h4 id='name-h4' className='my-2' onClick={()=>{onCLickPenIcon(authUserData.name, authUserData.about)}}>{authUserData.name} <i className="fa-solid fa-pen"></i></h4> 
+        <h6 id='about-h6'>{authUserData.about}</h6>
       </div>}
     </div>
 

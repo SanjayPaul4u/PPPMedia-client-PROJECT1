@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+#examplePhotoUploadModal h5{
+    font-size: 1.7rem;
+    font-family: 'Kanit', sans-serif;
+}
+#examplePhotoUploadModal .modal-body p{
+    font-size: 1rem;
+    font-family: 'Kanit', sans-serif;
+}
+#examplePhotoUploadModal .modal-footer button{
+    padding: 0.5rem 1.5rem;
+    margin-bottom: -1rem;
+    border: none;
+}
+#examplePhotoUploadModal .modal-footer button:hover{
+    background-color: #3ecdb4b8;
+    color: black;
+}
+
+@media only screen and (max-width: 400px){
+    #examplePhotoUploadModal h5{
+        font-size: 1.3rem;
+    }
+    #examplePhotoUploadModal .modal-footer button{
+        padding: 0.3rem 1rem;
+    }
+}

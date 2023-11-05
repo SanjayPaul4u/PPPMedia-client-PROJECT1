@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Ubuntu:wght@300;500&display=swap');
+
+#exampleUpdateTitleModal{
+}
+#exampleUpdateTitleModal h5{
+    font-size: 1.8rem;
+    font-family: 'Kanit', sans-serif;
+}
+#exampleUpdateTitleModal form label{
+    font-size: 1.2rem;
+    color: blue;
+    font-weight: 500;
+    font-family: 'Kanit', sans-serif;
+    padding-top: 0.2rem;
+    padding-left: 0.2rem;
+}
+#exampleUpdateTitleModal form textarea{
+    padding: 0.3rem 3.4rem;
+    font-weight: 500;
+    color: #3a3a3a;
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: rgba(178, 211, 247, 0.584);
+}
+#exampleUpdateTitleModal form p{
+    color: #ff8282;
+    font-size: 0.8rem;
+}
+#exampleUpdateTitleModal .modal-footer button{
+    border: none;
+    outline: none;
+    padding: 0.5rem 2rem;
+}
+#exampleUpdateTitleModal .modal-footer button:hover{
+    background-color: #3ecdb4b8;
+    color: #303030;
+    transition: all 0.5s;
+}
+
+@media only screen and (max-width: 400px){
+    #exampleUpdateTitleModal h5{
+        font-size: 1.3rem;
+    }
+    #exampleUpdateTitleModal .modal-footer button{
+        padding: 0.3rem 1rem;
+    }
+    #exampleUpdateTitleModal form label{
+        font-size: 1rem;
+    }
+}

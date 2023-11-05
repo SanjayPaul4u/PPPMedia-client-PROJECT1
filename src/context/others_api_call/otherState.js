@@ -81,20 +81,23 @@ const OtherState = (props) =>{
 
      //// getPhotosById -Api call-  FUNCTION -----------
      const [anyUserAllPhotos, setAnyUserAllPhotos] = useState([])
+     const [Loading, setLoading] = useState(false)
 
     const getPhotosById = async(id)=>{
         try {
+            setLoading(true);
             const response = await axios({
                 method: "get",
                 url: `/api/other/images/getphotosbyid/${id}`,
             })
             setAnyUserAllPhotos(response.data.userPhotos);
+            setLoading(false);
             
         } catch (error) {
             console.log(error);
         }
     }
-    return <OtherContext.Provider value={{updateDp, updateNameAbout,likePhoto, getUserByEmail, getPhotosById, anyUserAllPhotos}}>
+    return <OtherContext.Provider value={{updateDp, updateNameAbout,likePhoto, getUserByEmail, getPhotosById, anyUserAllPhotos, Loading}}>
         {props.children}
     </OtherContext.Provider>
 }
