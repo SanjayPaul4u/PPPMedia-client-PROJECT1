@@ -61,7 +61,7 @@ function Login() {
                         <label htmlFor="login-password-input" className="form-label position-absolute">
                           <i className="fa-solid fa-lock"></i>
                         </label>
-                        <input type="password" className="" id="login-password-input" name='password' onChange={onChangeFunc} value={userData.password} autoComplete="current-password" placeholder='Password' minLength={5} maxLength={15} required/>
+                        <input type="password" className="" id="login-password-input" name='password' onChange={onChangeFunc} value={userData.password} autoComplete="current-password" placeholder='Password' maxLength={15} required/>
 
                       </div>
                       <button type="submit" >Login</button>

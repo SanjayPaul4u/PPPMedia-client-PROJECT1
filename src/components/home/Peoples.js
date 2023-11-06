@@ -74,12 +74,11 @@ function Peoples() {
 
     {/* project-description */}
     <div id='project-description'>
-        <h2 id='project-description-heading'>project-description***</h2>
+        <h2 id='project-description-heading'>project-description*</h2>
         <ul className='mx-2'>
-            <p>TODO styling</p>
-            <li className='my-1'>PPP Media is  my full stack(mern) website project.</li>
-            <li className='my-1'>i get styling idia from "linkedIn" website for my project "PPP Media"</li>
-            <li className='my-1'>i have done practice many tutorial of mern project and after that i make my own "full stack  social media mern project" (PPP Media) </li>
+            <li className='my-2'>PPP Media is  my full stack(mern) website project.</li>
+            <li className='my-2'>i got styling idia from "linkedIn" website for my project "PPP Media"</li>
+            <li className='my-2'>i have done practice many tutorial of mern project and after that i make my own "full stack  social media mern project" (PPP Media) </li>
             
         </ul>
     </div>

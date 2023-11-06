@@ -44,13 +44,13 @@ function Signup() {
                   <div id='signup-form-div'>
                     <h1 id='signup-header'>Sign Up</h1>
                     <h6 id='signup-header-h6'>Create Account To Use PPP Media *</h6>
-                    <form>
+                    <form onSubmit={onclickCreateUserFunc}>
 
                       <div className="mb-3 position-relative">
                         <label htmlFor="exampleInputName123" className="form-label position-absolute">
                           <i className="fa-solid fa-user"></i>
                         </label>
-                        <input type="text"  id="exampleInputName123" aria-describedby="nameHelp" name='name' onChange={onChangeFunc} value={userData.name} autoComplete="username" placeholder='Your Name'/>
+                        <input type="text"  id="exampleInputName123" aria-describedby="nameHelp" name='name' onChange={onChangeFunc} value={userData.name} autoComplete="username" placeholder='Your Name' minLength={3} maxLength={25} required/>
                       </div>
 
                       <div className="mb-3 position-relative">
@@ -71,22 +71,24 @@ function Signup() {
                         <label htmlFor="exampleInputPassword1" className="form-label position-absolute">
                             <i className="fa-solid fa-key"></i>
                         </label>
-                        <input type="password" id="exampleInputPassword1" name='password' onChange={onChangeFunc} value={userData.password} autoComplete="new-password" placeholder='Set Password'/>
+                        <input type="password" id="exampleInputPassword1" name='password' onChange={onChangeFunc} value={userData.password} autoComplete="new-password" placeholder='Set Password' minLength={3} maxLength={25} required/>
                       </div>
 
                       <div className="mb-3 position-relative">
                         <label htmlFor="exampleInputConfirmPassword1" className="form-label position-absolute">
                           <i className="fa-solid fa-key"></i>
                         </label>
-                        <input type="password" id="exampleInputConfirmPassword1" name='confirmPassword' onChange={onChangeFunc} value={userData.confirmPassword} autoComplete="new-password" placeholder='Confirm - Password'/>
+                        <input type="password" id="exampleInputConfirmPassword1" name='confirmPassword' onChange={onChangeFunc} value={userData.confirmPassword} autoComplete="new-password" placeholder='Confirm - Password' minLength={3} maxLength={25} required/>
                       </div>
 
-                      <button  onClick={onclickCreateUserFunc}>Submit</button>
+                      
+                      {/* <button disabled={userData.name.length<3 || userData.password.length<3 || userData.confirmPassword.length<3}  onClick={onclickCreateUserFunc}>Submit</button> */}
+                      <button type='submit'>Submit</button>
 
+                    </form>
                         <div>
                           <h6 id='signup-footer-h6' className="my-2">Have You Already Account? Click <Link to="/login" role="button">LogIn</Link></h6>
                         </div>
-                    </form>
                   </div>
                   {/* login form end*/}
                

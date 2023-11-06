@@ -143,6 +143,10 @@
     text-transform: uppercase;
     font-size: 1.3rem;
 }
+#project-description ul li{
+    color: #ff6868;
+    font-family: 'Kanit', sans-serif;
+}
 .peoples-carousel-img{
     height: 5rem;
     width: 5rem;

@@ -72,7 +72,11 @@ const AuthState = (props)=>{
             return response.data;         
         } catch (error) {
             console.log(error);
-            showAlert("danger", "Account Creation Failed due to Invalid Credential");
+            if(error.response.data.message){
+                showAlert("danger", error.response.data.message);                
+            }else{
+                showAlert("danger", "Account Creation Failed due to Invalid Credential");
+            }
             return error;
         }
         
