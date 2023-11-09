@@ -2,6 +2,10 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
+  "proxy": "https://api.pppmedia.online",
+=======
+>>>>>>> c13372e72f012d5553effb9cdee7bd0b019d19b5
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
