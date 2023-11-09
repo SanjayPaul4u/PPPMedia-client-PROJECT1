@@ -2,10 +2,12 @@ import PhotoContext from "./photoContext"
 import React, { useContext, useState } from "react";
 import axios from 'axios';
 import AlertContext from "../alert/alertContext";
+import GetCookie from '../../hooks/getCookie'
 
 
 
 const PhotoState = (props)=>{
+  const host = "http://localhost:7000";
   const photoIntials = [];
   const userPhotosIntials = [];
 
@@ -22,12 +24,13 @@ const PhotoState = (props)=>{
    
     // GET ALL USER PHOTO - FOR SHOWING HOME PAGE
     const getAllPhoto = async()=>{
+      const token  = GetCookie("auth-token");
       try {
         setAllPhotoLoading(true);
 
         const response = await axios({
           method: "get",
-          url: "/api/upload/getallimages"
+          url: `${host}/api/upload/getallimages/${token}`
         })
         setAllPhotos(response.data.all_Images);
         setAllPhotoLoading(false);
@@ -40,11 +43,12 @@ const PhotoState = (props)=>{
 
     // GET SPECIFIC USER PHOTO
     const getUserPhotos = async () =>{
+      const token  = GetCookie("auth-token");
       try {
         setUserPhotoLoading(true);
         const response = await axios({
           method:"get",
-          url:"/api/upload/getuserimages"
+          url:`${host}/api/upload/getuserimages/${token}`
         })
         const user_data = await response.data.user_Images;
         // console.log(user_data);
@@ -59,11 +63,12 @@ const PhotoState = (props)=>{
 
     // UPLOAD USER PHOTO
     const uploadPhoto = async(data)=>{
+      const token  = GetCookie("auth-token");
       console.log(...data);
           try {
               const response = await axios({
                 method: "post",
-                url: "/api/upload/uploadimg",
+                url: `${host}/api/upload/uploadimg/${token}`,
                 data: data
               })
               console.log(response.data);
@@ -78,10 +83,11 @@ const PhotoState = (props)=>{
 
   // DELETE USER PHOTO
   const deleteUserPhoto = async (id) =>{
+    const token  = GetCookie("auth-token");
     try {
       const response = await axios({
         method: "delete",
-        url: `/api/upload/getuserimages/deleteuserimg/${id}`      
+        url: `${host}/api/upload/getuserimages/deleteuserimg/${id}/${token}`      
       })
       console.log(response.data);
       getUserPhotos();
@@ -96,10 +102,11 @@ const PhotoState = (props)=>{
 
   // UPDATE USER PHOTO'S TITLE
   const updateUserPhotoTitle = async (id, title) =>{
+    const token  = GetCookie("auth-token");
     try {
       const response = await axios({
         method: "patch",
-        url: `/api/upload/getuserimages/updateuserimg/${id}`,
+        url: `${host}/api/upload/getuserimages/updateuserimg/${id}/${token}`,
         data : {title: title},
         headers:{
           "Content-Type":"application/json"
