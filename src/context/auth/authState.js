@@ -5,10 +5,12 @@ import RemoveCookie from "../../hooks/removeCookie";
 import SetCookie from "../../hooks/setCookie";
 import AlertContext from "../alert/alertContext";
 // import PhotoContext from "../photos/photoContext";
+import GetCookie from '../../hooks/getCookie'
 
 
-
+// ,{withCredentials: true} in axios request
 const AuthState = (props)=>{
+    const host = "http://localhost:7000";
     // const photo_context = useContext(PhotoContext);
     // const {} = photo_context;
     
@@ -24,11 +26,13 @@ const AuthState = (props)=>{
 
     // GETUSER API CALL - BY AXIOS 
     const getUser = async()=>{
+        const token  = GetCookie("auth-token");
+
         try {
             setEmailLoading(true);
             const response = await axios({
                 method: "get",
-                url: "/api/auth/getuser"
+                url: `${host}/api/auth/getuser/${token}`
             })
             // console.log(response.data);
             setEmailLoading(false);
@@ -40,10 +44,12 @@ const AuthState = (props)=>{
     }
     // GETUSER API CALL - BY AXIOS 
     const getAllUser = async()=>{
+        const token  = GetCookie("auth-token");
+        
         try {
             const response = await axios({
                 method: "get",
-                url: "/api/auth/getalluser"
+                url: `${host}/api/auth/getalluser/${token}`
             })
             setAllUserArr(response.data.allUserData);
 
@@ -57,11 +63,11 @@ const AuthState = (props)=>{
         try {
             const response = await axios({
                 method:"post",
-                url:"/api/auth/signup",
+                url:`${host}/api/auth/signup`,
                 data:JSON.stringify(userData),
                 headers:{
                     "Content-Type": "application/json" //important
-                },
+                }
             })
             // console.log(response.data); 
             RemoveCookie('auth-token'); // first remove cookie
@@ -87,7 +93,7 @@ const AuthState = (props)=>{
         try {
             const response = await axios({
                 method: "post",
-                url:"/api/auth/login",
+                url:`${host}/api/auth/login`,
                 data: JSON.stringify(userData),
                 headers:{
                     "Content-Type": "application/json"
@@ -109,10 +115,11 @@ const AuthState = (props)=>{
     }
     // LOGOUT API CALL - BY AXIOS
     const LogOut = async ()=>{
+        const token  = GetCookie("auth-token");
         try {
             const response = await axios({
                 method: "get",
-                url:"/api/auth/logout",
+                url:`${host}/api/auth/logout/${token}`,
             })
             console.log(response.data);
             showAlert("success", "LogOut Successfully");

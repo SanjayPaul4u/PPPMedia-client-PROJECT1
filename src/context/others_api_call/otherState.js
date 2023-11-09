@@ -3,10 +3,12 @@ import OtherContext from "./otherContext";
 import axios from 'axios';
 import AuthContext from "../auth/authContext";
 import PhotoContext from "../photos/photoContext";
+import GetCookie from '../../hooks/getCookie'
 
 
 
 const OtherState = (props) =>{
+    const host = "http://localhost:7000";
     const photo_context = useContext(PhotoContext);
     const {getAllPhoto} = photo_context;
     const auth_context = useContext(AuthContext);
@@ -16,10 +18,11 @@ const OtherState = (props) =>{
     // UPDATE DP FUNCTION -----------
     const updateDp = async(data) => {
         // console.log(...data);
+        const token  = GetCookie("auth-token");
         try {
             const response = await axios({
                 method: "patch",
-                url: "/api/other/updateuserdp",
+                url: `${host}/api/other/updateuserdp/${token}`,
                 data: data
             })
             console.log(response.data);
@@ -34,10 +37,11 @@ const OtherState = (props) =>{
     // UPDATE DP FUNCTION -----------
     const updateNameAbout = async(data) => {
         // console.log(...data);
+        const token  = GetCookie("auth-token");
         try {
             const response = await axios({
                 method: "patch",
-                url: "/api/other/updateusernameabout",
+                url: `${host}/api/other/updateusernameabout/${token}`,
                 data: data
             })
             console.log(response.data);
@@ -53,10 +57,11 @@ const OtherState = (props) =>{
     //// Like -Api call-  FUNCTION -----------
     const likePhoto = async(id) => {
         // console.log(...data);
+        const token  = GetCookie("auth-token");
         try {
             const response = await axios({
                 method: "patch",
-                url: `/api/other/images/likeimg/${id}`,
+                url: `${host}/api/other/images/likeimg/${id}/${token}`,
             })
             console.log(response.data);
             getAllPhoto();
@@ -67,10 +72,11 @@ const OtherState = (props) =>{
 
 
     const getUserByEmail = async(email)=>{
+        const token  = GetCookie("auth-token");
         try {
             const response = await axios({
                 method: "get",
-                url: `/api/other/images/getuserbyemail/${email}`,
+                url: `${host}/api/other/images/getuserbyemail/${email}/${token}`,
             })
             return response.data.userData;
         } catch (error) {
@@ -84,11 +90,12 @@ const OtherState = (props) =>{
      const [Loading, setLoading] = useState(false)
 
     const getPhotosById = async(id)=>{
+        const token  = GetCookie("auth-token");
         try {
             setLoading(true);
             const response = await axios({
                 method: "get",
-                url: `/api/other/images/getphotosbyid/${id}`,
+                url: `${host}/api/other/images/getphotosbyid/${id}/${token}`,
             })
             setAnyUserAllPhotos(response.data.userPhotos);
             setLoading(false);
