@@ -7,7 +7,8 @@ import GetCookie from '../../hooks/getCookie'
 
 
 const PhotoState = (props)=>{
-  const host = "http://localhost:7000";
+  // const host = "http://localhost:7000";
+  const host = "https://api.pppmedia.online"
   const photoIntials = [];
   const userPhotosIntials = [];
 

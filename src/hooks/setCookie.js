@@ -6,7 +6,7 @@ const SetCookie = (cookieName, value)=>{
         //domain: 'www.pppmedia.com',
         expires: 1,// 1 day
         secure: true,
-        sameSite : "none",
+        sameSite : "strict",
         path: "/"
     })
 }
