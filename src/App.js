@@ -18,23 +18,16 @@ import OtherState from './context/others_api_call/otherState';
 import NameAndAboutUpdateModal from './components/user/NameAndAboutUpdateModal';
 import PeoplesofLikeModal from './components/home/PeoplesofLikeModal';
 import MainAnyUser from './components/anyuser/MainAnyUser';
+import ProgressState from './context/progressCount/progressState';
+import Toploadingbar from './components/Toploadingbar';
 
 
-
-/*
-<Home/>
-    <About/>
-    <Help/>
-    <User/>
-    <Login/>
-    <Signup/>
-    <Error404page/>
-*/
 
 function App() {
   
   return (
     <>
+    <ProgressState>
     <AlertState>
     <PhotoState>
     <AuthState>
@@ -46,6 +39,7 @@ function App() {
       <PeoplesofLikeModal/>
       <NameAndAboutUpdateModal/>
       <Navbar/>
+      <Toploadingbar/>
       <Alert/>
         <Routes>
             <Route exact path='/' element={<Home/>}/>
@@ -66,6 +60,7 @@ function App() {
     </AuthState>
     </PhotoState>
     </AlertState>
+    </ProgressState>
     </>
   );
 }

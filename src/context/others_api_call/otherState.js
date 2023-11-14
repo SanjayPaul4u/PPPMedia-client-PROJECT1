@@ -4,16 +4,22 @@ import axios from 'axios';
 import AuthContext from "../auth/authContext";
 import PhotoContext from "../photos/photoContext";
 import GetCookie from '../../hooks/getCookie'
+// import ProgressContext from "../progressCount/progressContext";
+
 
 
 
 const OtherState = (props) =>{
     // const host = "http://localhost:7000";
     const host = "https://api.pppmedia.online"
+
     const photo_context = useContext(PhotoContext);
     const {getAllPhoto} = photo_context;
     const auth_context = useContext(AuthContext);
     const {getUser, getAllUser} = auth_context;
+
+    // const progress_context = useContext(ProgressContext);
+    // const {SetProgress} = progress_context; 
 
 
     // UPDATE DP FUNCTION -----------

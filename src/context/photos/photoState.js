@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import axios from 'axios';
 import AlertContext from "../alert/alertContext";
 import GetCookie from '../../hooks/getCookie'
-
+import ProgressContext from "../progressCount/progressContext";
 
 
 const PhotoState = (props)=>{
@@ -20,21 +20,29 @@ const PhotoState = (props)=>{
 
   const alert_context = useContext(AlertContext);
   const {showAlert} = alert_context;
+
+  const progress_context = useContext(ProgressContext);
+  const {SetProgress} = progress_context;
+
   
 
    
     // GET ALL USER PHOTO - FOR SHOWING HOME PAGE
     const getAllPhoto = async()=>{
+      SetProgress(10);
       const token  = GetCookie("auth-token");
       try {
         setAllPhotoLoading(true);
+        SetProgress(40);
 
         const response = await axios({
           method: "get",
           url: `${host}/api/upload/getallimages/${token}`
         })
+        SetProgress(80);
         setAllPhotos(response.data.all_Images);
         setAllPhotoLoading(false);
+        SetProgress(100);
         return response.data;
         
       } catch (error) {
@@ -44,17 +52,22 @@ const PhotoState = (props)=>{
 
     // GET SPECIFIC USER PHOTO
     const getUserPhotos = async () =>{
+      SetProgress(10);
       const token  = GetCookie("auth-token");
       try {
         setUserPhotoLoading(true);
+        SetProgress(40);
+
         const response = await axios({
           method:"get",
           url:`${host}/api/upload/getuserimages/${token}`
         })
+        SetProgress(80);
         const user_data = await response.data.user_Images;
         // console.log(user_data);
         setUserPhotoLoading(false);
         setUserPhotos(user_data)
+        SetProgress(100);
         return response.data
       } catch (error) {
         console.log(error);

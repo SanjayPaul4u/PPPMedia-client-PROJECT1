@@ -49,7 +49,7 @@ function Navbar() {
     }
 
     // ADDED STYLE
-    let myStyle = {};
+    let myStyle = {color : "red",};
     if(window.innerWidth > 992){ // for responsive navbar
       myStyle = {
         color : "#515151",
@@ -87,7 +87,7 @@ function Navbar() {
 
                         <>
                         <li className="nav-item">
-                        <Link className="nav-link active mx-1" style={path==='/home'|| path==='/'?myStyle:{}}  aria-current="page" to="/home" onClick={closeRespnsiveNavFunc}>Home</Link>
+                        <Link className="nav-link mx-1" style={path==='/home'|| path==='/'?myStyle:{}}  aria-current="page" to="/home" onClick={closeRespnsiveNavFunc}>Home</Link>
                         </li>    
 
                         <li className="nav-item">

@@ -6,17 +6,24 @@ import SetCookie from "../../hooks/setCookie";
 import AlertContext from "../alert/alertContext";
 // import PhotoContext from "../photos/photoContext";
 import GetCookie from '../../hooks/getCookie'
+import ProgressContext from "../progressCount/progressContext";
+
+
 
 
 // ,{withCredentials: true} in axios request
 const AuthState = (props)=>{
-    // const host = https://localhost:7000;
+    // const host = "http://localhost:7000";
     const host = "https://api.pppmedia.online"
+
     // const photo_context = useContext(PhotoContext);
     // const {} = photo_context;
     
     const alert_context = useContext(AlertContext);
     const {showAlert} = alert_context;
+
+    const progress_context = useContext(ProgressContext);
+    const {SetProgress} = progress_context;
 
 
     // USER EMAIL STATE CREATE
@@ -27,18 +34,22 @@ const AuthState = (props)=>{
 
     // GETUSER API CALL - BY AXIOS 
     const getUser = async()=>{
+        SetProgress(10);
         const token  = GetCookie("auth-token");
 
         try {
             setEmailLoading(true);
+            SetProgress(40);
             const response = await axios({
                 method: "get",
                 url: `${host}/api/auth/getuser/${token}`
             })
+            SetProgress(80);
             // console.log(response.data);
             setEmailLoading(false);
             setUserEmail(response.data.userData.email);
             setAuthUserData(response.data.userData) ;
+            SetProgress(100);
         } catch (error) {
             console.log(error);
         }
