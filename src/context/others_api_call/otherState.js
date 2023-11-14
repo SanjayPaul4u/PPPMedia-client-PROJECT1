@@ -10,8 +10,8 @@ import GetCookie from '../../hooks/getCookie'
 
 
 const OtherState = (props) =>{
-    const host = "http://localhost:7000";
-    // const host = "https://api.pppmedia.online"
+    // const host = "http://localhost:7000";
+    const host = "https://api.pppmedia.online"
 
     const photo_context = useContext(PhotoContext);
     const {getAllPhoto} = photo_context;
