@@ -33,6 +33,18 @@
     color: #303030;
     font-family: 'Kanit', sans-serif;
 }
+#about-feature-content{
+    color: #303030;
+    font-family: 'Kanit', sans-serif;
+}
+#about-technologies-content{
+    color: #303030;
+    font-family: 'Kanit', sans-serif;
+}
+#about-technologies-content h5{
+    color: rgb(67, 118, 202);
+    font-family: 'Kanit', sans-serif;
+}
 @media only screen and (max-width: 577px){
     #about-component h1{
         font-size: 1.6rem;

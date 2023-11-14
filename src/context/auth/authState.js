@@ -13,8 +13,8 @@ import ProgressContext from "../progressCount/progressContext";
 
 // ,{withCredentials: true} in axios request
 const AuthState = (props)=>{
-    // const host = "http://localhost:7000";
-    const host = "https://api.pppmedia.online"
+    const host = "http://localhost:7000";
+    // const host = "https://api.pppmedia.online"
 
     // const photo_context = useContext(PhotoContext);
     // const {} = photo_context;
@@ -72,7 +72,9 @@ const AuthState = (props)=>{
 
     // SIGNUP API CALL - BY AXIOS
     const SignUp = async(userData) =>{
+        SetProgress(10);
         try {
+            SetProgress(40);
             const response = await axios({
                 method:"post",
                 url:`${host}/api/auth/signup`,
@@ -81,13 +83,15 @@ const AuthState = (props)=>{
                     "Content-Type": "application/json" //important
                 }
             })
+            SetProgress(80);
             // console.log(response.data); 
             RemoveCookie('auth-token'); // first remove cookie
             SetCookie('auth-token', response.data.token) // then set cookie
             
             getUser(); 
             showAlert("success", "Account Created Successfully");
-            return response.data;         
+            SetProgress(100);      
+            return response.data;   
         } catch (error) {
             console.log(error);
             if(error.response.data.message){
@@ -102,7 +106,9 @@ const AuthState = (props)=>{
 
     // LOGIN API CALL - BY AXIOS
     const LogIn = async (userData)=>{
+        SetProgress(10);
         try {
+            SetProgress(40);
             const response = await axios({
                 method: "post",
                 url:`${host}/api/auth/login`,
@@ -111,12 +117,14 @@ const AuthState = (props)=>{
                     "Content-Type": "application/json"
                 }
             })
+            SetProgress(80);
             // console.log(response.data.token);
             RemoveCookie('auth-token'); // first remove cookie
             SetCookie('auth-token', response.data.token) // then set cookie                       
             getUser();
             getAllUser();
             showAlert("success", "Loged In Successfully");
+            SetProgress(100);
             return response.data;
         } catch (error) {
             console.log(error);
@@ -127,14 +135,18 @@ const AuthState = (props)=>{
     }
     // LOGOUT API CALL - BY AXIOS
     const LogOut = async ()=>{
+        SetProgress(10);
         const token  = GetCookie("auth-token");
         try {
+            SetProgress(40);
             const response = await axios({
                 method: "get",
                 url:`${host}/api/auth/logout/${token}`,
             })
+            SetProgress(80);
             console.log(response.data);
             showAlert("success", "LogOut Successfully");
+            SetProgress(100);
             return response.data;
         } catch (error) {
             console.log(error);

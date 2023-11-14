@@ -140,3 +140,4 @@ nothing
 1. UPDATE OTHER_STATE
 --------------------------------------------------------------------------------
 53: Added react-top-loading-bar
+54: Update About page
