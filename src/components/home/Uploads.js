@@ -9,13 +9,14 @@ import AuthContext from '../../context/auth/authContext'
 import defaultDpImg from "../images/default.png"
 import Likes from './Likes'
 import FunctionContext from '../../context/functions/functionContext'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 
 
 function Uploads() {
   const p_context = useContext(PhotoContext);
   const auth_context = useContext(AuthContext);
-  const {getAllPhoto, allPhotos, allPhotoLoading} = p_context;
+  const {getAllPhoto, getAllPhotoByScrolling, allPhotosImpObj, allPhotos, allPhotoLoading} = p_context;
   const {getAllUser, allUserArr, getUser} = auth_context;
   const function_context = useContext(FunctionContext);
   const {UserDetailFunc} = function_context;
@@ -35,6 +36,8 @@ function Uploads() {
     // eslint-disable-next-line
   }, [])
   
+  // console.log(allPhotos)
+  // console.log(allPhotosImpObj);
   return (
     <div>
         {/* PHOTO UPLOAD CARD */}
@@ -51,15 +54,28 @@ function Uploads() {
           <Spinner/>
         </div>}
 
-        {/* FETCHING PHOTOS CARD */}
-        {allPhotos.length!==0 && allPhotos.map((element)=>{
-          return <div key={element._id} className="home-card my-4" id='upload-card'>
+        
+
+        {/* FETCHING PHOTOS CARD 📌📌📌*/}
+        {allPhotos.length!==0 && <div className="row">
+          {/* FETCHING PHOTOS CARD */}
+          <InfiniteScroll
+            dataLength={allPhotos.length}
+            next={getAllPhotoByScrolling}
+            hasMore={allPhotos.length!==allPhotosImpObj.totalResult}
+            loader={<div className='mt-4 text-center p-2' style={{backgroundColor: 'white', borderRadius:"0.3rem"}}>
+            <Spinner/>
+          </div>}
+          >
+
+
+        {allPhotos.map((element)=>{
+          return <div key={element._id} className="home-card my-4 col-12 col-md-12 col-md-12" id='upload-card'>
           <div className="card-body">
 
             
-              
-                {/* FETCH DP, NAME, ABOUT - FROM "allUserArr" */}
-                {allUserArr.map((e)=>{
+              {/* FETCH DP, NAME, ABOUT - FROM "allUserArr" */}
+              {allUserArr.map((e)=>{
                   if(element.user === e._id){
                     return<div key={e._id} className='d-flex justify-content-between'>
                               <div className='d-flex' id='dp-div'>
@@ -80,6 +96,7 @@ function Uploads() {
                     return "";
                   }
                 })}
+                
               
                 
             <hr id='dp-line'/>
@@ -95,7 +112,10 @@ function Uploads() {
           </div>            
         </div> 
         })}
-                         
+
+        </InfiniteScroll>
+      </div>
+      }
     </div>
 
   )
