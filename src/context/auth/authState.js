@@ -13,8 +13,8 @@ import ProgressContext from "../progressCount/progressContext";
 
 // ,{withCredentials: true} in axios request
 const AuthState = (props)=>{
-    const host = "http://localhost:7000";
-    // const host = "https://api.pppmedia.online"
+    // const host = "http://localhost:7000";
+    const host = "https://api.pppmedia.online"
 
     // const photo_context = useContext(PhotoContext);
     // const {} = photo_context;
